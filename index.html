@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniela Mancos - Stilist Profesionist</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">Daniela Mancos</span>
+            </a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Acasă</a></li>
+                <li><a href="programare.html" class="nav-link">Programare</a></li>
+                <li><a href="cursuri.html" class="nav-link">Cursuri</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title animate-fade-in">Transformă-ți Look-ul cu Daniela Mancos</h1>
+            <p class="hero-subtitle animate-fade-in-delay">Descoperă frumusețea ta interioară prin stilul perfect</p>
+            <div class="hero-buttons animate-fade-in-delay-2">
+                <a href="programare.html" class="btn btn-primary">Programează-te Acum</a>
+                <a href="cursuri.html" class="btn btn-outline">Descoperă Cursurile</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Despre Mine</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="static/img/IMG_4685.JPG" alt="Daniela Mancos">
+                    <div class="about-image-decoration"></div>
+                </div>
+                <div class="about-text">
+                    <h3>Pasiune pentru Frumusețe</h3>
+                    <p>Cu o experiență de peste 10 ani în industria frumuseții, am transformat pasiunea mea pentru hair styling într-o artă. Fiecare client este unic, iar misiunea mea este să descopăr și să evidențiez frumusețea fiecărei persoane.</p>
+                    <p>Sunt specializată în tehnici moderne de colorare, tunsori personalizate și coafuri pentru evenimente speciale. Folosesc doar produse profesionale de cea mai înaltă calitate pentru a asigura sănătatea și strălucirea părului tău.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">Ani Experiență</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">2000+</span>
+                            <span class="stat-label">Clienți Fericiți</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Cursanți Formați</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Serviciile Mele</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="services-grid services-grid-3">
+                <!-- Tratamente Capilare -->
+                <div class="service-card service-card-expandable" onclick="toggleServiceCard(this)">
+                    <div class="service-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3>Tratamente Capilare</h3>
+                    <p>Tratamente profesionale pentru sănătatea și vitalitatea părului.</p>
+                    <div class="service-expand-icon">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="service-details">
+                        <ul class="service-list">
+                            <li><i class="fas fa-check"></i> Îndreptare cu Keratină</li>
+                            <li><i class="fas fa-check"></i> Keratină</li>
+                            <li><i class="fas fa-check"></i> Nanoplastie</li>
+                            <li><i class="fas fa-check"></i> Botox Cald/Rece</li>
+                            <li><i class="fas fa-check"></i> Reconstrucție</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Colorare -->
+                <div class="service-card service-card-expandable" onclick="toggleServiceCard(this)">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Colorare</h3>
+                    <p>Tehnici avansate de colorare pentru un look natural și strălucitor.</p>
+                    <div class="service-expand-icon">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="service-details">
+                        <ul class="service-list">
+                            <li><i class="fas fa-check"></i> Balayage</li>
+                            <li><i class="fas fa-check"></i> Airtouch</li>
+                            <li><i class="fas fa-check"></i> Blond Total</li>
+                            <li><i class="fas fa-check"></i> Vopsit</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Tunsori -->
+                <div class="service-card service-card-expandable" onclick="toggleServiceCard(this)">
+                    <div class="service-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3>Tunsori</h3>
+                    <p>Tunsori moderne care se potrivesc perfect formei feței și stilului tău.</p>
+                    <div class="service-expand-icon">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="service-details">
+                        <ul class="service-list">
+                            <li><i class="fas fa-check"></i> Bob Lung</li>
+                            <li><i class="fas fa-check"></i> Bob Scurt</li>
+                            <li><i class="fas fa-check"></i> Bob Drept</li>
+                            <li><i class="fas fa-check"></i> Tuns în Scări</li>
+                            <li><i class="fas fa-check"></i> Butterfly</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Portofoliu</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="static/img/IMG_4686.JPG" alt="Hairstyle 1">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="static/img/IMG_4687.JPG" alt="Hairstyle 2">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="static/img/IMG_4688.JPG" alt="Hairstyle 3">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="static/img/IMG_4690 (2).JPG" alt="Hairstyle 4">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="static/img/IMG_4691.JPG" alt="Hairstyle 5">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="static/img/IMG_4693.JPG" alt="Hairstyle 6">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-overlay"></div>
+        <div class="container">
+            <div class="cta-content">
+                <h2>Pregătită pentru o Transformare?</h2>
+                <p>Programează-te acum și descoperă cea mai bună versiune a ta!</p>
+                <a href="programare.html" class="btn btn-primary btn-large">Programare Online</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Daniela Mancos</h3>
+                    <p>Stilist Profesionist</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Acasă</a>
+                    <a href="programare.html">Programare</a>
+                    <a href="cursuri.html">Cursuri</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Daniela Mancos. Toate drepturile rezervate.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

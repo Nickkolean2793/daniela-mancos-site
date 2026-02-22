@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programare - Daniela Mancos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">Daniela Mancos</span>
+            </a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Acasă</a></li>
+                <li><a href="programare.html" class="nav-link active">Programare</a></li>
+                <li><a href="cursuri.html" class="nav-link">Cursuri</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header" style="background-image: url('static/img/IMG_4694.JPG');">
+        <div class="page-header-overlay"></div>
+        <div class="page-header-content">
+            <h1>Programare Online</h1>
+            <p>Alege data și serviciul dorit</p>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking section">
+        <div class="container">
+            <div class="booking-wrapper">
+                <div class="booking-info">
+                    <h2>Programează-te Ușor</h2>
+                    <p>Selectează data dorită din calendar și completează formularul pentru a-ți rezerva locul. Vei primi o confirmare pe email.</p>
+                    
+                    <div class="booking-features">
+                        <div class="booking-feature">
+                            <i class="fas fa-calendar-check"></i>
+                            <span>Disponibilitate în timp real</span>
+                        </div>
+                        <div class="booking-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>Confirmare instantă</span>
+                        </div>
+                        <div class="booking-feature">
+                            <i class="fas fa-bell"></i>
+                            <span>Notificare prin email</span>
+                        </div>
+                    </div>
+
+                    <div class="booking-notice">
+                        <i class="fas fa-info-circle"></i>
+                        <p>Programările sunt disponibile doar în zilele lucrătoare (Luni - Vineri), începând cu ziua următoare.</p>
+                    </div>
+                </div>
+
+                <div class="booking-form-container">
+                    <form id="bookingForm" class="booking-form" name="booking" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                        <input type="hidden" name="form-name" value="booking">
+                        <input type="hidden" name="notification_email" value="nicolaebordei3@gmail.com">
+                        <div style="display:none">
+                            <input name="bot-field">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name">Nume Complet *</label>
+                            <input type="text" id="name" name="name" required placeholder="Introdu numele tău">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="exemplu@email.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Telefon *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="07XX XXX XXX">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="serviceCategory">Categoria *</label>
+                            <select id="serviceCategory" name="serviceCategory" required onchange="updateServiceOptions()">
+                                <option value="">Selectează categoria</option>
+                                <option value="tratamente">Tratamente Capilare</option>
+                                <option value="colorare">Colorare</option>
+                                <option value="tunsori">Tunsori</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="service">Serviciu *</label>
+                            <select id="service" name="service" required disabled>
+                                <option value="">Selectează mai întâi categoria</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="date">Data Programării *</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="time">Ora Preferată *</label>
+                            <select id="time" name="time" required>
+                                <option value="">Selectează ora</option>
+                                <option value="09:00">09:00</option>
+                                <option value="10:00">10:00</option>
+                                <option value="11:00">11:00</option>
+                                <option value="12:00">12:00</option>
+                                <option value="13:00">13:00</option>
+                                <option value="14:00">14:00</option>
+                                <option value="15:00">15:00</option>
+                                <option value="16:00">16:00</option>
+                                <option value="17:00">17:00</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="notes">Observații (opțional)</label>
+                            <textarea id="notes" name="notes" rows="3" placeholder="Adaugă orice detalii suplimentare..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <i class="fas fa-calendar-plus"></i> Trimite Programarea
+                        </button>
+                    </form>
+
+                    <div id="bookingSuccess" class="booking-success hidden">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Programare Trimisă cu Succes!</h3>
+                        <p>Vei primi o confirmare pe email în curând.</p>
+                        <button class="btn btn-outline" onclick="resetBookingForm()">Fă o Nouă Programare</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendar Integration Info -->
+    <section class="calendar-info section section-alt">
+        <div class="container">
+            <div class="calendar-info-content">
+                <div class="calendar-icon">
+                    <i class="fab fa-google"></i>
+                </div>
+                <div class="calendar-text">
+                    <h3>Sincronizare cu Google Calendar</h3>
+                    <p>Programarea ta va fi adăugată automat în calendarul meu pentru o gestionare eficientă a timpului. Vei primi și tu un reminder înainte de programare.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Daniela Mancos</h3>
+                    <p>Stilist Profesionist</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Acasă</a>
+                    <a href="programare.html">Programare</a>
+                    <a href="cursuri.html">Cursuri</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Daniela Mancos. Toate drepturile rezervate.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/booking.js"></script>
+</body>
+</html>

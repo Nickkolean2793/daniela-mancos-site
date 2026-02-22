@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursuri - Daniela Mancos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">Daniela Mancos</span>
+            </a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Acasă</a></li>
+                <li><a href="programare.html" class="nav-link">Programare</a></li>
+                <li><a href="cursuri.html" class="nav-link active">Cursuri</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header" style="background-image: url('static/img/IMG_4695.JPG');">
+        <div class="page-header-overlay"></div>
+        <div class="page-header-content">
+            <h1>Cursuri de Perfecționare</h1>
+            <p>Învață de la un profesionist</p>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Cursuri Disponibile</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">Dezvoltă-ți abilitățile cu cursurile noastre practice și intensive</p>
+            </div>
+
+            <div class="courses-grid courses-grid-2">
+                <!-- Course 1 - Cursuri de Tratamente -->
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="static/img/IMG_4696 (1).JPG" alt="Cursuri de Tratamente">
+                        <div class="course-badge">Popular</div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Cursuri de Tratamente</h3>
+                        <p>Învață cele mai moderne tehnici de tratamente capilare: îdreptare cu keratină, nanoplastie, botox cald/rece și reconstrucție. Cursul include practică intensivă și materiale profesionale.</p>
+                        <div class="course-includes">
+                            <h4>Ce vei învăța:</h4>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Îndreptare cu Keratină</li>
+                                <li><i class="fas fa-check-circle"></i> Keratină</li>
+                                <li><i class="fas fa-check-circle"></i> Nanoplastie</li>
+                                <li><i class="fas fa-check-circle"></i> Botox Cald/Rece</li>
+                                <li><i class="fas fa-check-circle"></i> Reconstrucție</li>
+                            </ul>
+                        </div>
+                        <div class="course-details">
+                            <span><i class="fas fa-clock"></i> 5 zile</span>
+                            <span><i class="fas fa-users"></i> Max 6 cursanți</span>
+                        </div>
+                        <div class="course-price">500 EUR</div>
+                        <button class="btn btn-primary btn-full" onclick="openCourseModal('Cursuri de Tratamente', '500 EUR')">
+                            Înscrie-te
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Course 2 - Cursuri de Colorimetrie -->
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="static/img/IMG_4697 (1).JPG" alt="Cursuri de Colorimetrie">
+                        <div class="course-badge bestseller">Bestseller</div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Cursuri de Colorimetrie</h3>
+                        <p>Descoperă secretele colorării profesionale. De la teorie la aplicare practică, vei stăpâni toate tehnicile moderne de colorare.</p>
+                        <div class="course-includes">
+                            <h4>Ce vei învăța:</h4>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Balayage</li>
+                                <li><i class="fas fa-check-circle"></i> Airtouch</li>
+                                <li><i class="fas fa-check-circle"></i> Blond Total</li>
+                                <li><i class="fas fa-check-circle"></i> Vopsit Profesional</li>
+                                <li><i class="fas fa-check-circle"></i> Teoria Culorilor</li>
+                            </ul>
+                        </div>
+                        <div class="course-details">
+                            <span><i class="fas fa-clock"></i> 5 zile</span>
+                            <span><i class="fas fa-users"></i> Max 6 cursanți</span>
+                        </div>
+                        <div class="course-price">500 EUR</div>
+                        <button class="btn btn-primary btn-full" onclick="openCourseModal('Cursuri de Colorimetrie', '500 EUR')">
+                            Înscrie-te
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-us section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">De Ce Să Alegi Cursurile Mele?</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="why-us-grid">
+                <div class="why-us-item">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>Practică Intensivă</h3>
+                    <p>70% din timp este dedicat practicii pe modele reale</p>
+                </div>
+                <div class="why-us-item">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Certificat Recunoscut</h3>
+                    <p>Certificat de absolvire pentru fiecare curs finalizat</p>
+                </div>
+                <div class="why-us-item">
+                    <i class="fas fa-users-cog"></i>
+                    <h3>Grupuri Mici</h3>
+                    <p>Atenție personalizată pentru fiecare cursant</p>
+                </div>
+                <div class="why-us-item">
+                    <i class="fas fa-headset"></i>
+                    <h3>Suport Post-Curs</h3>
+                    <p>Consultanță gratuită 30 de zile după absolvire</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Modal -->
+    <div id="courseModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Înscriere la Curs</h2>
+            <p id="modalCourseInfo"></p>
+            
+            <form id="courseForm" class="course-form">
+                <input type="hidden" id="courseName" name="courseName">
+                <input type="hidden" id="coursePrice" name="coursePrice">
+                
+                <div class="form-group">
+                    <label for="studentName">Nume Complet *</label>
+                    <input type="text" id="studentName" name="studentName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentEmail">Email *</label>
+                    <input type="email" id="studentEmail" name="studentEmail" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentPhone">Telefon *</label>
+                    <input type="tel" id="studentPhone" name="studentPhone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="experience">Nivel de Experiență</label>
+                    <select id="experience" name="experience">
+                        <option value="beginner">Începător</option>
+                        <option value="intermediate">Intermediar</option>
+                        <option value="advanced">Avansat</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="courseMessage">Mesaj (opțional)</label>
+                    <textarea id="courseMessage" name="courseMessage" rows="3"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full">Trimite Înscrierea</button>
+            </form>
+
+            <div id="courseSuccess" class="booking-success hidden">
+                <i class="fas fa-check-circle"></i>
+                <h3>Înscriere Trimisă!</h3>
+                <p>Te vom contacta în curând cu detalii despre curs.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Daniela Mancos</h3>
+                    <p>Stilist Profesionist</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Acasă</a>
+                    <a href="programare.html">Programare</a>
+                    <a href="cursuri.html">Cursuri</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Daniela Mancos. Toate drepturile rezervate.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/courses.js"></script>
+</body>
+</html>
