@@ -77,6 +77,10 @@ function closeCourseModal() {
     }
 }
 
+// Make functions globally available
+window.openCourseModal = openCourseModal;
+window.closeCourseModal = closeCourseModal;
+
 // ==========================================
 // Course Form
 // ==========================================
