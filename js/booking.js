@@ -44,8 +44,42 @@ function initBookingForm() {
         validateDate(this);
     });
 
-    // Form submission handled by Netlify Forms
-    // form.addEventListener('submit', handleBookingSubmit);
+    // Form submission - works with Netlify when deployed, shows success locally
+    form.addEventListener('submit', function(event) {
+        // Only prevent default on localhost for testing
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            event.preventDefault();
+            showBookingSuccess();
+        }
+        // On Netlify, form will submit normally
+    });
+}
+
+function showBookingSuccess() {
+    const form = document.getElementById('bookingForm');
+    const successDiv = document.getElementById('bookingSuccess');
+    
+    if (form && successDiv) {
+        form.style.display = 'none';
+        successDiv.classList.remove('hidden');
+    }
+}
+
+function resetBookingForm() {
+    const form = document.getElementById('bookingForm');
+    const successDiv = document.getElementById('bookingSuccess');
+    
+    if (form && successDiv) {
+        form.reset();
+        form.style.display = 'block';
+        successDiv.classList.add('hidden');
+        
+        // Reset date to next working day
+        const dateInput = document.getElementById('date');
+        if (dateInput) {
+            setMinimumDate(dateInput);
+        }
+    }
 }
 
 // Update service options based on category selection
