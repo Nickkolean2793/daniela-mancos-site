@@ -11,87 +11,38 @@ function initContactForm() {
     
     if (!form) return;
     
-    form.addEventListener('submit', handleContactSubmit);
+    // Form submission - works with Netlify when deployed, shows success locally
+    form.addEventListener('submit', function(event) {
+        // Only prevent default on localhost for testing
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            event.preventDefault();
+            event.stopPropagation();
+            event.stopImmediatePropagation();
+            showContactSuccess();
+            return false;
+        }
+        // On Netlify, form will submit normally
+    }, true);
 }
 
-async function handleContactSubmit(event) {
-    event.preventDefault();
+function showContactSuccess() {
+    const form = document.getElementById('contactForm');
+    const successDiv = document.getElementById('contactSuccess');
     
-    const form = event.target;
-    const submitBtn = form.querySelector('button[type="submit"]');
-    
-    // Get form data
-    const formData = {
-        name: form.querySelector('#contactName').value,
-        email: form.querySelector('#contactEmail').value,
-        subject: form.querySelector('#contactSubject').value || 'Fără subiect',
-        message: form.querySelector('#contactMessage').value,
-        timestamp: new Date().toISOString()
-    };
-
-    // Disable button and show loading
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Se trimite...';
-
-    try {
-        // Simulate API call
-        await simulateContactAPI(formData);
-        
-        // Show success
-        form.classList.add('hidden');
-        document.getElementById('contactSuccess').classList.remove('hidden');
-        
-        // Show notification
-        showNotification('Mesajul a fost trimis cu succes!');
-        
-        // Store message locally
-        saveContactLocally(formData);
-        
-        console.log('Contact form submitted:', formData);
-        console.log('Email notification would be sent to: nicolaebordei3@gmail.com');
-
-    } catch (error) {
-        console.error('Contact form error:', error);
-        showNotification('A apărut o eroare. Vă rugăm încercați din nou.', 'error');
-    } finally {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Trimite Mesajul';
+    if (form && successDiv) {
+        form.style.display = 'none';
+        successDiv.classList.remove('hidden');
     }
 }
 
-// Simulate API call
-function simulateContactAPI(data) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if (Math.random() > 0.05) {
-                resolve({ success: true, messageId: 'MSG' + Date.now() });
-            } else {
-                reject(new Error('Server error'));
-            }
-        }, 1500);
-    });
-}
-
-// Save contact locally
-function saveContactLocally(contact) {
-    const contacts = JSON.parse(localStorage.getItem('dm_contacts') || '[]');
-    contacts.push({
-        ...contact,
-        id: 'MSG' + Date.now(),
-        status: 'unread'
-    });
-    localStorage.setItem('dm_contacts', JSON.stringify(contacts));
-}
-
-// Reset contact form
 function resetContactForm() {
     const form = document.getElementById('contactForm');
-    const success = document.getElementById('contactSuccess');
+    const successDiv = document.getElementById('contactSuccess');
     
-    if (form && success) {
+    if (form && successDiv) {
         form.reset();
-        success.classList.add('hidden');
-        form.classList.remove('hidden');
+        form.style.display = 'block';
+        successDiv.classList.add('hidden');
     }
 }
 
