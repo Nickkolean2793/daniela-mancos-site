@@ -1404,8 +1404,12 @@ p {
     }
     
     .nav-menu .nav-link {
-        color: var(--white);
+        color: var(--white) !important;
         font-size: 1.5rem;
+    }
+    
+    .nav-menu.active .nav-link {
+        color: var(--white) !important;
     }
     
     .nav-toggle {
