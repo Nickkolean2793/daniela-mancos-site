@@ -152,17 +152,7 @@ function simulateCourseEnrollmentAPI(data) {
     });
 }
 
-// Save enrollment locally
-function saveCourseEnrollmentLocally(enrollment) {
-    const enrollments = JSON.parse(localStorage.getItem('dm_enrollments') || '[]');
+            // Allow native form submission for Netlify Forms
+            // No preventDefault, no AJAX
+            // Netlify will handle email notification
     enrollments.push({
-        ...enrollment,
-        id: 'EN' + Date.now(),
-        status: 'pending'
-    });
-    localStorage.setItem('dm_enrollments', JSON.stringify(enrollments));
-}
-
-// Make functions globally available
-window.openCourseModal = openCourseModal;
-window.closeCourseModal = closeCourseModal;

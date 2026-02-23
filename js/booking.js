@@ -163,49 +163,19 @@ async function handleBookingSubmit(event) {
     const selectedDate = new Date(formData.date);
     if (isWeekend(selectedDate)) {
         showNotification('Programările sunt disponibile doar în zilele lucrătoare.', 'error');
-        return;
-    }
-
-    // Disable button and show loading
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Se trimite...';
-
-    try {
-        // Send booking to Netlify Function
-        const response = await fetch('/.netlify/functions/booking', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formData)
-        });
-        const result = await response.json();
-        if (response.ok && result.success) {
-            document.getElementById('bookingForm').classList.add('hidden');
-            document.getElementById('bookingSuccess').classList.remove('hidden');
-            showNotification('Programarea a fost trimisă cu succes!');
-        } else {
-            throw new Error(result.error || 'Eroare la trimiterea programării.');
+        // Only validate weekend, let Netlify handle submission
+        const form = event.target;
+        const dateInput = form.querySelector('#date');
+        if (dateInput && isWeekend(new Date(dateInput.value))) {
+            showNotification('Programările sunt disponibile doar în zilele lucrătoare.', 'error');
+            dateInput.value = formatDateForInput(getNextWorkingDay(new Date(dateInput.value)));
+            return;
         }
-    } catch (error) {
-        console.error('Booking error:', error);
-        showNotification('A apărut o eroare. Vă rugăm încercați din nou.', 'error');
-    } finally {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = '<i class="fas fa-calendar-plus"></i> Trimite Programarea';
-    }
-}
-
-// Reset booking form
-function resetBookingForm() {
-    const form = document.getElementById('bookingForm');
-    const success = document.getElementById('bookingSuccess');
-    
-    if (form && success) {
-        form.reset();
-        setMinimumDate(document.getElementById('date'));
-        success.classList.add('hidden');
-        form.classList.remove('hidden');
-    }
-}
-
-// Make functions globally available
-window.resetBookingForm = resetBookingForm;
+        // Allow native form submission
+        // No preventDefault, no AJAX
+        // Netlify will handle email notification
+        // Optionally, show loading state
+        // (remove if not needed)
+        // form.querySelector('button[type="submit"]').disabled = true;
+        // form.querySelector('button[type="submit"]').innerHTML = '<i class="fas fa-spinner fa-spin"></i> Se trimite...';
+        if (response.ok && result.success) {

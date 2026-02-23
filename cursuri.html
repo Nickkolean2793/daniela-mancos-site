@@ -149,7 +149,11 @@
             <h2>Înscriere la Curs</h2>
             <p id="modalCourseInfo"></p>
             
-            <form id="courseForm" class="course-form">
+            <form id="courseForm" class="course-form" name="course" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="course">
+                <div style="display:none">
+                    <input name="bot-field">
+                </div>
                 <input type="hidden" id="courseName" name="courseName">
                 <input type="hidden" id="coursePrice" name="coursePrice">
                 
