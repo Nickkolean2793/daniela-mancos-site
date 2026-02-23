@@ -43,85 +43,22 @@
         <div class="container">
             <div class="booking-wrapper">
                 <div class="booking-info">
-                    <h2>Book Quickly</h2>
-                    <p>Fill out the form below to reserve your session. Appointments are only available on weekdays (Monday - Friday) and start the next day.</p>
+                    <h2>Book Your Appointment</h2>
+                    <p>Select your preferred date and time from the calendar below. Only available time slots are shown to prevent double-bookings.</p>
                     <div class="booking-features">
-                        <div class="booking-feature"><i class="fas fa-calendar-alt"></i> No weekend bookings</div>
-                        <div class="booking-feature"><i class="fas fa-check-circle"></i> Email confirmation</div>
-                        <div class="booking-feature"><i class="fas fa-user"></i> Personalized services</div>
+                        <div class="booking-feature"><i class="fas fa-calendar-check"></i> Real-time availability</div>
+                        <div class="booking-feature"><i class="fas fa-clock"></i> Instant confirmation</div>
+                        <div class="booking-feature"><i class="fas fa-shield-alt"></i> Secure booking</div>
                     </div>
                 </div>
                 <div class="booking-form-container">
-                    <form id="bookingForm" class="booking-form" name="booking" method="POST" data-netlify="true" netlify>
-                        <input type="hidden" name="form-name" value="booking">
-                        <div class="form-group">
-                            <label for="name">Name *</label>
-                            <input type="text" id="name" name="name" required placeholder="Your name">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">E-mail *</label>
-                            <input type="email" id="email" name="email" required placeholder="email@example.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone *</label>
-                            <input type="tel" id="phone" name="phone" required placeholder="Phone number">
-                        </div>
-                        <div class="form-group">
-                            <label for="serviceCategory">Service Category *</label>
-                            <select id="serviceCategory" name="serviceCategory" required onchange="updateServiceOptions()">
-                                <option value="">Choose category</option>
-                                <option value="tratamente">Hair Treatments</option>
-                                <option value="colorare">Coloring</option>
-                                <option value="tunsori">Haircuts</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="service">Service *</label>
-                            <select id="service" name="service" required>
-                                <option value="">Choose service</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="date">Date *</label>
-                            <input type="date" id="date" name="date" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="time">Time *</label>
-                            <select id="time" name="time" required>
-                                <option value="">Choose time</option>
-                                <option value="09:00">09:00</option>
-                                <option value="09:30">09:30</option>
-                                <option value="10:00">10:00</option>
-                                <option value="10:30">10:30</option>
-                                <option value="11:00">11:00</option>
-                                <option value="11:30">11:30</option>
-                                <option value="12:00">12:00</option>
-                                <option value="12:30">12:30</option>
-                                <option value="13:00">13:00</option>
-                                <option value="13:30">13:30</option>
-                                <option value="14:00">14:00</option>
-                                <option value="14:30">14:30</option>
-                                <option value="15:00">15:00</option>
-                                <option value="15:30">15:30</option>
-                                <option value="16:00">16:00</option>
-                                <option value="16:30">16:30</option>
-                                <option value="17:00">17:00</option>
-                                <option value="17:30">17:30</option>
-                                <option value="18:00">18:00</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="notes">Notes</label>
-                            <textarea id="notes" name="notes" rows="3" placeholder="Additional details..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-full">Book Now</button>
-                    </form>
-                    <div id="bookingSuccess" class="booking-success hidden">
-                        <i class="fas fa-check-circle"></i>
-                        <h3>Booking Sent!</h3>
-                        <p>You will receive confirmation via email shortly.</p>
-                        <button class="btn btn-outline" onclick="resetBookingForm()">Book Another Session</button>
-                    </div>
+                    <!-- Google Calendar Appointment Scheduling -->
+                    <iframe src="https://calendar.app.google/tnanJE5CGyCArk2x9" 
+                            style="border: 0; width: 100%; height: 600px; border-radius: 8px;" 
+                            frameborder="0" 
+                            scrolling="yes"
+                            title="Book an Appointment">
+                    </iframe>
                 </div>
             </div>
         </div>

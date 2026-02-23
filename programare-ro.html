@@ -43,85 +43,22 @@
         <div class="container">
             <div class="booking-wrapper">
                 <div class="booking-info">
-                    <h2>Programează-te rapid</h2>
-                    <p>Completează formularul de mai jos pentru a-ți rezerva o ședință. Programările sunt disponibile doar în zilele lucrătoare (luni - vineri) și încep cu ziua următoare.</p>
+                    <h2>Programează-te</h2>
+                    <p>Selectează data și ora preferată din calendarul de mai jos. Sunt afișate doar intervalele disponibile pentru a preveni suprapunerile.</p>
                     <div class="booking-features">
-                        <div class="booking-feature"><i class="fas fa-calendar-alt"></i> Fără programări în weekend</div>
-                        <div class="booking-feature"><i class="fas fa-check-circle"></i> Confirmare pe email</div>
-                        <div class="booking-feature"><i class="fas fa-user"></i> Servicii personalizate</div>
+                        <div class="booking-feature"><i class="fas fa-calendar-check"></i> Disponibilitate în timp real</div>
+                        <div class="booking-feature"><i class="fas fa-clock"></i> Confirmare instantanee</div>
+                        <div class="booking-feature"><i class="fas fa-shield-alt"></i> Programare securizată</div>
                     </div>
                 </div>
                 <div class="booking-form-container">
-                    <form id="bookingForm" class="booking-form" name="booking" method="POST" data-netlify="true" netlify>
-                        <input type="hidden" name="form-name" value="booking">
-                        <div class="form-group">
-                            <label for="name">Nume *</label>
-                            <input type="text" id="name" name="name" required placeholder="Numele tău">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">E-mail *</label>
-                            <input type="email" id="email" name="email" required placeholder="email@exemplu.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Telefon *</label>
-                            <input type="tel" id="phone" name="phone" required placeholder="Număr de telefon">
-                        </div>
-                        <div class="form-group">
-                            <label for="serviceCategory">Categorie serviciu *</label>
-                            <select id="serviceCategory" name="serviceCategory" required onchange="updateServiceOptions()">
-                                <option value="">Alege categoria</option>
-                                <option value="tratamente">Tratamente capilare</option>
-                                <option value="colorare">Colorare</option>
-                                <option value="tunsori">Tunsori</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="service">Serviciu *</label>
-                            <select id="service" name="service" required>
-                                <option value="">Alege serviciul</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="date">Data *</label>
-                            <input type="date" id="date" name="date" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="time">Ora *</label>
-                            <select id="time" name="time" required>
-                                <option value="">Alege ora</option>
-                                <option value="09:00">09:00</option>
-                                <option value="09:30">09:30</option>
-                                <option value="10:00">10:00</option>
-                                <option value="10:30">10:30</option>
-                                <option value="11:00">11:00</option>
-                                <option value="11:30">11:30</option>
-                                <option value="12:00">12:00</option>
-                                <option value="12:30">12:30</option>
-                                <option value="13:00">13:00</option>
-                                <option value="13:30">13:30</option>
-                                <option value="14:00">14:00</option>
-                                <option value="14:30">14:30</option>
-                                <option value="15:00">15:00</option>
-                                <option value="15:30">15:30</option>
-                                <option value="16:00">16:00</option>
-                                <option value="16:30">16:30</option>
-                                <option value="17:00">17:00</option>
-                                <option value="17:30">17:30</option>
-                                <option value="18:00">18:00</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="notes">Observații</label>
-                            <textarea id="notes" name="notes" rows="3" placeholder="Detalii suplimentare..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-full">Programează-te</button>
-                    </form>
-                    <div id="bookingSuccess" class="booking-success hidden">
-                        <i class="fas fa-check-circle"></i>
-                        <h3>Programare trimisă!</h3>
-                        <p>Vei primi confirmarea pe email în cel mai scurt timp.</p>
-                        <button class="btn btn-outline" onclick="resetBookingForm()">Programează altă ședință</button>
-                    </div>
+                    <!-- Google Calendar Appointment Scheduling -->
+                    <iframe src="https://calendar.app.google/tnanJE5CGyCArk2x9" 
+                            style="border: 0; width: 100%; height: 600px; border-radius: 8px;" 
+                            frameborder="0" 
+                            scrolling="yes"
+                            title="Programează o întâlnire">
+                    </iframe>
                 </div>
             </div>
         </div>
