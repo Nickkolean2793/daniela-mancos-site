@@ -44,8 +44,8 @@ function initBookingForm() {
         validateDate(this);
     });
 
-    // Form submission
-    form.addEventListener('submit', handleBookingSubmit);
+    // Form submission handled by Netlify Forms
+    // form.addEventListener('submit', handleBookingSubmit);
 }
 
 // Update service options based on category selection
