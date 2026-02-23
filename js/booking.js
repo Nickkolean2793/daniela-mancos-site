@@ -46,15 +46,30 @@ function initBookingForm() {
 
     // Form submission - works with Netlify when deployed, shows success locally
     form.addEventListener('submit', function(event) {
+        console.log('Form submit handler triggered');
+        console.log('Hostname:', window.location.hostname);
+        
+        // Validate all required fields
+        const requiredFields = form.querySelectorAll('[required]');
+        for (let field of requiredFields) {
+            if (!field.value) {
+                console.log('Missing required field:', field.name);
+                return; // Let browser handle validation
+            }
+        }
+        
         // Only prevent default on localhost for testing
         if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            console.log('Preventing default submission on localhost');
             event.preventDefault();
             event.stopPropagation();
+            event.stopImmediatePropagation();
             showBookingSuccess();
             return false;
         }
         // On Netlify, form will submit normally
-    });
+        console.log('Allowing normal form submission for Netlify');
+    }, true); // Use capture phase
 }
 
 function showBookingSuccess() {
