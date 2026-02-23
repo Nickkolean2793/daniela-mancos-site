@@ -1423,11 +1423,13 @@ p {
     .nav-toggle.active .hamburger::before {
         top: 0;
         transform: rotate(45deg);
+        background-color: var(--white) !important;
     }
     
     .nav-toggle.active .hamburger::after {
         bottom: 0;
         transform: rotate(-45deg);
+        background-color: var(--white) !important;
     }
     
     .hero {
