@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="icon" href="static/img/favicon.jpg" type="image/jpeg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Daniela Mancos</title>
+    <title>Programare - Daniela Mancos</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -20,10 +20,11 @@
                 <span class="hamburger"></span>
             </button>
             <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Acasă</a></li>
-                <li><a href="programare.html" class="nav-link">Programare</a></li>
-                <li><a href="cursuri.html" class="nav-link">Cursuri</a></li>
-                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                <li><a href="index-ro.html" class="nav-link">Acasă</a></li>
+                <li><a href="programare-ro.html" class="nav-link active">Programare</a></li>
+                <li><a href="cursuri-ro.html" class="nav-link">Cursuri</a></li>
+                <li><a href="contact-ro.html" class="nav-link">Contact</a></li>
+                <li><a href="programare.html" class="nav-link lang-switch" title="Switch to English">🇬🇧 EN</a></li>
             </ul>
         </div>
     </nav>
@@ -32,174 +33,94 @@
     <section class="page-header" style="background-image: url('static/img/IMG_4701.JPG');">
         <div class="page-header-overlay"></div>
         <div class="page-header-content">
-            <h1>Contact</h1>
-            <p>Sunt aici să te ajut</p>
+            <h1>Programare Online</h1>
+            <p>Rezervă-ți locul pentru o transformare</p>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact section">
+    <!-- Booking Section -->
+    <section class="booking section">
         <div class="container">
-            <div class="contact-wrapper">
-                <div class="contact-info">
-                    <h2>Hai să Vorbim!</h2>
-                    <p>Ai întrebări despre serviciile mele sau despre cursuri? Nu ezita să mă contactezi!</p>
-
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone-alt"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Telefon</h4>
-                                <p><a href="tel:+32 488 97 24 71">+32 488 97 24 71</a></p>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>E-mail</h4>
-                                <p><a href="mailto:danielapolucciu12@gmail.com">danielapolucciu12@gmail.com</a></p>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Locație</h4>
-                                <p><br>Bruxelles, Belgia</p>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Program</h4>
-                                <p>Luni - Vineri: 09:00 - 18:00<br>Sâmbătă - Duminică: Închis</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="contact-social">
-                        <h4>Urmărește-mă</h4>
-                        <div class="social-links">
-                            <a href="#" class="social-link" aria-label="Facebook">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#" class="social-link" aria-label="Instagram">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="#" class="social-link" aria-label="TikTok">
-                                <i class="fab fa-tiktok"></i>
-                            </a>
-                            <a href="#" class="social-link" aria-label="WhatsApp">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                        </div>
+            <div class="booking-wrapper">
+                <div class="booking-info">
+                    <h2>Programează-te rapid</h2>
+                    <p>Completează formularul de mai jos pentru a-ți rezerva o ședință. Programările sunt disponibile doar în zilele lucrătoare (luni - vineri) și încep cu ziua următoare.</p>
+                    <div class="booking-features">
+                        <div class="booking-feature"><i class="fas fa-calendar-alt"></i> Fără programări în weekend</div>
+                        <div class="booking-feature"><i class="fas fa-check-circle"></i> Confirmare pe email</div>
+                        <div class="booking-feature"><i class="fas fa-user"></i> Servicii personalizate</div>
                     </div>
                 </div>
-
-                <div class="contact-form-container">
-                    <form id="contactForm" class="contact-form">
-                        <h3>Trimite un mesaj</h3>
-                        
+                <div class="booking-form-container">
+                    <form id="bookingForm" class="booking-form" name="booking" method="POST" data-netlify="true" netlify>
+                        <input type="hidden" name="form-name" value="booking">
                         <div class="form-group">
-                            <label for="contactName">Nume *</label>
-                            <input type="text" id="contactName" name="name" required placeholder="Numele tău">
+                            <label for="name">Nume *</label>
+                            <input type="text" id="name" name="name" required placeholder="Numele tău">
                         </div>
-
                         <div class="form-group">
-                            <label for="contactEmail">E-mail *</label>
-                            <input type="email" id="contactEmail" name="email" required placeholder="email@exemplu.com">
+                            <label for="email">E-mail *</label>
+                            <input type="email" id="email" name="email" required placeholder="email@exemplu.com">
                         </div>
-
                         <div class="form-group">
-                            <label for="contactSubject">Subiect</label>
-                            <input type="text" id="contactSubject" name="subject" placeholder="Despre ce vrei să discutăm?">
+                            <label for="phone">Telefon *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="Număr de telefon">
                         </div>
-
                         <div class="form-group">
-                            <label for="contactMessage">Mesaj *</label>
-                            <textarea id="contactMessage" name="message" rows="5" required placeholder="Scrie mesajul tău aici..."></textarea>
+                            <label for="serviceCategory">Categorie serviciu *</label>
+                            <select id="serviceCategory" name="serviceCategory" required onchange="updateServiceOptions()">
+                                <option value="">Alege categoria</option>
+                                <option value="tratamente">Tratamente capilare</option>
+                                <option value="colorare">Colorare</option>
+                                <option value="tunsori">Tunsori</option>
+                            </select>
                         </div>
-
-                        <button type="submit" class="btn btn-primary btn-full">
-                            <i class="fas fa-paper-plane"></i> Trimite mesajul
-                        </button>
+                        <div class="form-group">
+                            <label for="service">Serviciu *</label>
+                            <select id="service" name="service" required>
+                                <option value="">Alege serviciul</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Data *</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Ora *</label>
+                            <select id="time" name="time" required>
+                                <option value="">Alege ora</option>
+                                <option value="09:00">09:00</option>
+                                <option value="09:30">09:30</option>
+                                <option value="10:00">10:00</option>
+                                <option value="10:30">10:30</option>
+                                <option value="11:00">11:00</option>
+                                <option value="11:30">11:30</option>
+                                <option value="12:00">12:00</option>
+                                <option value="12:30">12:30</option>
+                                <option value="13:00">13:00</option>
+                                <option value="13:30">13:30</option>
+                                <option value="14:00">14:00</option>
+                                <option value="14:30">14:30</option>
+                                <option value="15:00">15:00</option>
+                                <option value="15:30">15:30</option>
+                                <option value="16:00">16:00</option>
+                                <option value="16:30">16:30</option>
+                                <option value="17:00">17:00</option>
+                                <option value="17:30">17:30</option>
+                                <option value="18:00">18:00</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="notes">Observații</label>
+                            <textarea id="notes" name="notes" rows="3" placeholder="Detalii suplimentare..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Programează-te</button>
                     </form>
-
-                    <div id="contactSuccess" class="booking-success hidden">
+                    <div id="bookingSuccess" class="booking-success hidden">
                         <i class="fas fa-check-circle"></i>
-                        <h3>Mesaj Trimis!</h3>
-                        <p>Îți voi răspunde în cel mai scurt timp posibil.</p>
-                        <button class="btn btn-outline" onclick="resetContactForm()">Trimite Alt Mesaj</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Map Section (Placeholder) -->
-    <section class="map-section">
-        <div class="map-placeholder">
-            <i class="fas fa-map-marked-alt"></i>
-            <p>Harta va fi disponibilă în curând</p>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq section section-alt">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Întrebări frecvente</h2>
-                <div class="section-divider"></div>
-            </div>
-
-            <div class="faq-list">
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Cum pot face o programare?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Poți face o programare direct de pe site, accesând pagina "Programare" și completând formularul cu datele tale și serviciul dorit. Vei primi confirmarea pe email.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Ce produse folosiți?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Folosesc exclusiv produse profesionale de la branduri renumite precum L'Oréal Professionnel, Wella și Olaplex pentru a asigura cele mai bune rezultate și sănătatea părului tău.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Cât durează o ședință de colorare?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Durata variază în funcție de serviciu: o vopsire simplă durează aproximativ 1.5-2 ore, în timp ce un balayage complet poate dura 3-4 ore.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Trebuie să am experiență pentru cursuri?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Nu neapărat! Am cursuri pentru toate nivelurile, de la începători până la avansați. În descrierea fiecărui curs vei găsi cerințele specifice.</p>
+                        <h3>Programare trimisă!</h3>
+                        <p>Vei primi confirmarea pe email în cel mai scurt timp.</p>
+                        <button class="btn btn-outline" onclick="resetBookingForm()">Programează altă ședință</button>
                     </div>
                 </div>
             </div>
@@ -233,6 +154,6 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <script src="js/contact.js"></script>
+    <script src="js/booking.js"></script>
 </body>
 </html>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="static/img/favicon.jpg" type="image/jpeg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programare - Daniela Mancos</title>
+    <title>Booking - Daniela Mancos</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -20,10 +20,11 @@
                 <span class="hamburger"></span>
             </button>
             <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Acasă</a></li>
-                <li><a href="programare.html" class="nav-link active">Programare</a></li>
-                <li><a href="cursuri.html" class="nav-link">Cursuri</a></li>
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="programare.html" class="nav-link active">Booking</a></li>
+                <li><a href="cursuri.html" class="nav-link">Courses</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="programare-ro.html" class="nav-link lang-switch" title="Switch to Romanian">🇷🇴 RO</a></li>
             </ul>
         </div>
     </nav>
@@ -32,8 +33,8 @@
     <section class="page-header" style="background-image: url('static/img/IMG_4701.JPG');">
         <div class="page-header-overlay"></div>
         <div class="page-header-content">
-            <h1>Programare Online</h1>
-            <p>Rezervă-ți locul pentru o transformare</p>
+            <h1>Online Booking</h1>
+            <p>Reserve your spot for a transformation</p>
         </div>
     </section>
 
@@ -42,52 +43,52 @@
         <div class="container">
             <div class="booking-wrapper">
                 <div class="booking-info">
-                    <h2>Programează-te rapid</h2>
-                    <p>Completează formularul de mai jos pentru a-ți rezerva o ședință. Programările sunt disponibile doar în zilele lucrătoare (luni - vineri) și încep cu ziua următoare.</p>
+                    <h2>Book Quickly</h2>
+                    <p>Fill out the form below to reserve your session. Appointments are only available on weekdays (Monday - Friday) and start the next day.</p>
                     <div class="booking-features">
-                        <div class="booking-feature"><i class="fas fa-calendar-alt"></i> Fără programări în weekend</div>
-                        <div class="booking-feature"><i class="fas fa-check-circle"></i> Confirmare pe email</div>
-                        <div class="booking-feature"><i class="fas fa-user"></i> Servicii personalizate</div>
+                        <div class="booking-feature"><i class="fas fa-calendar-alt"></i> No weekend bookings</div>
+                        <div class="booking-feature"><i class="fas fa-check-circle"></i> Email confirmation</div>
+                        <div class="booking-feature"><i class="fas fa-user"></i> Personalized services</div>
                     </div>
                 </div>
                 <div class="booking-form-container">
                     <form id="bookingForm" class="booking-form" name="booking" method="POST" data-netlify="true" netlify>
                         <input type="hidden" name="form-name" value="booking">
                         <div class="form-group">
-                            <label for="name">Nume *</label>
-                            <input type="text" id="name" name="name" required placeholder="Numele tău">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Your name">
                         </div>
                         <div class="form-group">
                             <label for="email">E-mail *</label>
-                            <input type="email" id="email" name="email" required placeholder="email@exemplu.com">
+                            <input type="email" id="email" name="email" required placeholder="email@example.com">
                         </div>
                         <div class="form-group">
-                            <label for="phone">Telefon *</label>
-                            <input type="tel" id="phone" name="phone" required placeholder="Număr de telefon">
+                            <label for="phone">Phone *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="Phone number">
                         </div>
                         <div class="form-group">
-                            <label for="serviceCategory">Categorie serviciu *</label>
+                            <label for="serviceCategory">Service Category *</label>
                             <select id="serviceCategory" name="serviceCategory" required onchange="updateServiceOptions()">
-                                <option value="">Alege categoria</option>
-                                <option value="tratamente">Tratamente capilare</option>
-                                <option value="colorare">Colorare</option>
-                                <option value="tunsori">Tunsori</option>
+                                <option value="">Choose category</option>
+                                <option value="tratamente">Hair Treatments</option>
+                                <option value="colorare">Coloring</option>
+                                <option value="tunsori">Haircuts</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="service">Serviciu *</label>
+                            <label for="service">Service *</label>
                             <select id="service" name="service" required>
-                                <option value="">Alege serviciul</option>
+                                <option value="">Choose service</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="date">Data *</label>
+                            <label for="date">Date *</label>
                             <input type="date" id="date" name="date" required>
                         </div>
                         <div class="form-group">
-                            <label for="time">Ora *</label>
+                            <label for="time">Time *</label>
                             <select id="time" name="time" required>
-                                <option value="">Alege ora</option>
+                                <option value="">Choose time</option>
                                 <option value="09:00">09:00</option>
                                 <option value="09:30">09:30</option>
                                 <option value="10:00">10:00</option>
@@ -110,16 +111,16 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="notes">Observații</label>
-                            <textarea id="notes" name="notes" rows="3" placeholder="Detalii suplimentare..."></textarea>
+                            <label for="notes">Notes</label>
+                            <textarea id="notes" name="notes" rows="3" placeholder="Additional details..."></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-full">Programează-te</button>
+                        <button type="submit" class="btn btn-primary btn-full">Book Now</button>
                     </form>
                     <div id="bookingSuccess" class="booking-success hidden">
                         <i class="fas fa-check-circle"></i>
-                        <h3>Programare trimisă!</h3>
-                        <p>Vei primi confirmarea pe email în cel mai scurt timp.</p>
-                        <button class="btn btn-outline" onclick="resetBookingForm()">Programează altă ședință</button>
+                        <h3>Booking Sent!</h3>
+                        <p>You will receive confirmation via email shortly.</p>
+                        <button class="btn btn-outline" onclick="resetBookingForm()">Book Another Session</button>
                     </div>
                 </div>
             </div>
@@ -132,12 +133,12 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <h3>Daniela Mancos</h3>
-                    <p>Stilist profesionist</p>
+                    <p>Professional Stylist</p>
                 </div>
                 <div class="footer-links">
-                    <a href="index.html">Acasă</a>
-                    <a href="programare.html">Programare</a>
-                    <a href="cursuri.html">Cursuri</a>
+                    <a href="index.html">Home</a>
+                    <a href="programare.html">Booking</a>
+                    <a href="cursuri.html">Courses</a>
                     <a href="contact.html">Contact</a>
                 </div>
                 <div class="footer-social">
@@ -147,7 +148,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Daniela Mancos. Toate drepturile rezervate.</p>
+                <p>&copy; 2026 Daniela Mancos. All rights reserved.</p>
             </div>
         </div>
     </footer>

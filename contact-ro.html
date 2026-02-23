@@ -1,49 +1,240 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-	<meta charset="UTF-8">
-	<link rel="icon" href="static/img/favicon.jpg" type="image/jpeg">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Contact - Daniela Mancos</title>
-	<link rel="stylesheet" href="css/style.css">
-	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-	<style>
-	.lang-switcher-btn {
-		display: inline-flex;
-		align-items: center;
-		background: #fff;
-		border: 1px solid #ddd;
-		border-radius: 5px;
-		padding: 2px 10px 2px 2px;
-		margin-left: 6px;
-		font-size: 15px;
-		cursor: pointer;
-		box-shadow: 0 1px 3px #0001;
-		transition: background 0.2s;
-		text-decoration: none;
-	}
-	.lang-switcher-btn:hover {
-		background: #f3f3f3;
-	}
-	.lang-switcher-btn img {
-		width: 28px;
-		height: 20px;
-		border-radius: 3px;
-		margin-right: 7px;
-		box-shadow: 0 1px 3px #0002;
-	}
-	.lang-switcher {
-		position: absolute;
-		top: 18px;
-		right: 24px;
-		z-index: 1000;
-	}
-	</style>
+    <meta charset="UTF-8">
+    <link rel="icon" href="static/img/favicon.jpg" type="image/jpeg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Daniela Mancos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-	<!-- Language Switcher -->
-	<div class="lang-switcher">
-		<a href="contact-ro.html" class="lang-switcher-btn" title="Română"><img src="static/img/flag-ro.png" alt="Română">Română</a>
-		<a href="contact.html" class="lang-switcher-btn" title="English"><img src="static/img/flag-uk.png" alt="English">English</a>
-	</div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index-ro.html" class="logo">
+                <span class="logo-text">Daniela Mancos</span>
+            </a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index-ro.html" class="nav-link">Acasă</a></li>
+                <li><a href="programare-ro.html" class="nav-link">Programare</a></li>
+                <li><a href="cursuri-ro.html" class="nav-link">Cursuri</a></li>
+                <li><a href="contact-ro.html" class="nav-link active">Contact</a></li>
+                <li><a href="contact.html" class="nav-link lang-switch" title="Switch to English">🇬🇧 EN</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header" style="background-image: url('static/img/IMG_4701.JPG');">
+        <div class="page-header-overlay"></div>
+        <div class="page-header-content">
+            <h1>Contact</h1>
+            <p>Sunt aici să te ajut</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2>Hai să vorbim!</h2>
+                    <p>Ai întrebări despre serviciile mele sau despre cursuri? Nu ezita să mă contactezi!</p>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Telefon</h4>
+                                <p><a href="tel:+32 488 97 24 71">+32 488 97 24 71</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p><a href="mailto:danielapolucciu12@gmail.com">danielapolucciu12@gmail.com</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Locație</h4>
+                                <p><br>Bruxelles, Belgia</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Program</h4>
+                                <p>Luni - Vineri: 09:00 - 18:00<br>Sâmbătă - Duminică: Închis</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-social">
+                        <h4>Urmărește-mă</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="TikTok">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <form id="contactForm" class="contact-form" name="contact" method="POST" data-netlify="true">
+                        <input type="hidden" name="form-name" value="contact">
+                        <h3>Trimite un mesaj</h3>
+                        
+                        <div class="form-group">
+                            <label for="contactName">Nume *</label>
+                            <input type="text" id="contactName" name="name" required placeholder="Numele tău">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactEmail">E-mail *</label>
+                            <input type="email" id="contactEmail" name="email" required placeholder="email@exemplu.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactSubject">Subiect</label>
+                            <input type="text" id="contactSubject" name="subject" placeholder="Despre ce vrei să discutăm?">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactMessage">Mesaj *</label>
+                            <textarea id="contactMessage" name="message" rows="5" required placeholder="Scrie mesajul tău aici..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <i class="fas fa-paper-plane"></i> Trimite mesajul
+                        </button>
+                    </form>
+
+                    <div id="contactSuccess" class="booking-success hidden">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Mesaj Trimis!</h3>
+                        <p>Îți voi răspunde în cel mai scurt timp posibil.</p>
+                        <button class="btn btn-outline" onclick="resetContactForm()">Trimite alt mesaj</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section (Placeholder) -->
+    <section class="map-section">
+        <div class="map-placeholder">
+            <i class="fas fa-map-marked-alt"></i>
+            <p>Harta va fi disponibilă în curând</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Întrebări frecvente</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Cum pot face o programare?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Poți face o programare direct de pe site, accesând pagina "Programare" și completând formularul cu datele tale și serviciul dorit. Vei primi confirmarea pe email.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Ce produse folosiți?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Folosesc exclusiv produse profesionale de la branduri renumite precum L'Oréal Professionnel, Wella și Olaplex pentru a asigura cele mai bune rezultate și sănătatea părului tău.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Cât durează o ședință de colorare?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Durata variază în funcție de serviciu: o vopsire simplă durează aproximativ 1.5-2 ore, în timp ce un balayage complet poate dura 3-4 ore.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Trebuie să am experiență pentru cursuri?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Nu neapărat! Am cursuri pentru toate nivelurile, de la începători până la avansați. În descrierea fiecărui curs vei găsi cerințele specifice.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Daniela Mancos</h3>
+                    <p>Stilist profesionist</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index-ro.html">Acasă</a>
+                    <a href="programare-ro.html">Programare</a>
+                    <a href="cursuri-ro.html">Cursuri</a>
+                    <a href="contact-ro.html">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Daniela Mancos. Toate drepturile rezervate.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>

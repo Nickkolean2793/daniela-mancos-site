@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="static/img/favicon.jpg" type="image/jpeg">
@@ -20,10 +20,11 @@
                 <span class="hamburger"></span>
             </button>
             <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Acasă</a></li>
-                <li><a href="programare.html" class="nav-link">Programare</a></li>
-                <li><a href="cursuri.html" class="nav-link">Cursuri</a></li>
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="programare.html" class="nav-link">Booking</a></li>
+                <li><a href="cursuri.html" class="nav-link">Courses</a></li>
                 <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                <li><a href="contact-ro.html" class="nav-link lang-switch" title="Switch to Romanian">🇷🇴 RO</a></li>
             </ul>
         </div>
     </nav>
@@ -33,7 +34,7 @@
         <div class="page-header-overlay"></div>
         <div class="page-header-content">
             <h1>Contact</h1>
-            <p>Sunt aici să te ajut</p>
+            <p>I'm here to help</p>
         </div>
     </section>
 
@@ -42,8 +43,8 @@
         <div class="container">
             <div class="contact-wrapper">
                 <div class="contact-info">
-                    <h2>Hai să vorbim!</h2>
-                    <p>Ai întrebări despre serviciile mele sau despre cursuri? Nu ezita să mă contactezi!</p>
+                    <h2>Let's talk!</h2>
+                    <p>Have questions about my services or courses? Don't hesitate to contact me!</p>
 
                     <div class="contact-details">
                         <div class="contact-item">
@@ -51,7 +52,7 @@
                                 <i class="fas fa-phone-alt"></i>
                             </div>
                             <div class="contact-text">
-                                <h4>Telefon</h4>
+                                <h4>Phone</h4>
                                 <p><a href="tel:+32 488 97 24 71">+32 488 97 24 71</a></p>
                             </div>
                         </div>
@@ -71,8 +72,8 @@
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div class="contact-text">
-                                <h4>Locație</h4>
-                                <p><br>Bruxelles, Belgia</p>
+                                <h4>Location</h4>
+                                <p><br>Brussels, Belgium</p>
                             </div>
                         </div>
 
@@ -81,14 +82,14 @@
                                 <i class="fas fa-clock"></i>
                             </div>
                             <div class="contact-text">
-                                <h4>Program</h4>
-                                <p>Luni - Vineri: 09:00 - 18:00<br>Sâmbătă - Duminică: Închis</p>
+                                <h4>Schedule</h4>
+                                <p>Monday - Friday: 09:00 - 18:00<br>Saturday - Sunday: Closed</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="contact-social">
-                        <h4>Urmărește-mă</h4>
+                        <h4>Follow me</h4>
                         <div class="social-links">
                             <a href="#" class="social-link" aria-label="Facebook">
                                 <i class="fab fa-facebook-f"></i>
@@ -109,38 +110,38 @@
                 <div class="contact-form-container">
                     <form id="contactForm" class="contact-form" name="contact" method="POST" data-netlify="true">
                         <input type="hidden" name="form-name" value="contact">
-                        <h3>Trimite un mesaj</h3>
+                        <h3>Send a message</h3>
                         
                         <div class="form-group">
-                            <label for="contactName">Nume *</label>
-                            <input type="text" id="contactName" name="name" required placeholder="Numele tău">
+                            <label for="contactName">Name *</label>
+                            <input type="text" id="contactName" name="name" required placeholder="Your name">
                         </div>
 
                         <div class="form-group">
-                            <label for="contactEmail">E-mail *</label>
-                            <input type="email" id="contactEmail" name="email" required placeholder="email@exemplu.com">
+                            <label for="contactEmail">Email *</label>
+                            <input type="email" id="contactEmail" name="email" required placeholder="email@example.com">
                         </div>
 
                         <div class="form-group">
-                            <label for="contactSubject">Subiect</label>
-                            <input type="text" id="contactSubject" name="subject" placeholder="Despre ce vrei să discutăm?">
+                            <label for="contactSubject">Subject</label>
+                            <input type="text" id="contactSubject" name="subject" placeholder="What would you like to discuss?">
                         </div>
 
                         <div class="form-group">
-                            <label for="contactMessage">Mesaj *</label>
-                            <textarea id="contactMessage" name="message" rows="5" required placeholder="Scrie mesajul tău aici..."></textarea>
+                            <label for="contactMessage">Message *</label>
+                            <textarea id="contactMessage" name="message" rows="5" required placeholder="Write your message here..."></textarea>
                         </div>
 
                         <button type="submit" class="btn btn-primary btn-full">
-                            <i class="fas fa-paper-plane"></i> Trimite mesajul
+                            <i class="fas fa-paper-plane"></i> Send message
                         </button>
                     </form>
 
                     <div id="contactSuccess" class="booking-success hidden">
                         <i class="fas fa-check-circle"></i>
-                        <h3>Mesaj Trimis!</h3>
-                        <p>Îți voi răspunde în cel mai scurt timp posibil.</p>
-                        <button class="btn btn-outline" onclick="resetContactForm()">Trimite alt mesaj</button>
+                        <h3>Message Sent!</h3>
+                        <p>I will respond as soon as possible.</p>
+                        <button class="btn btn-outline" onclick="resetContactForm()">Send another message</button>
                     </div>
                 </div>
             </div>
@@ -151,7 +152,7 @@
     <section class="map-section">
         <div class="map-placeholder">
             <i class="fas fa-map-marked-alt"></i>
-            <p>Harta va fi disponibilă în curând</p>
+            <p>Map will be available soon</p>
         </div>
     </section>
 
@@ -159,48 +160,48 @@
     <section class="faq section section-alt">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Întrebări frecvente</h2>
+                <h2 class="section-title">Frequently Asked Questions</h2>
                 <div class="section-divider"></div>
             </div>
 
             <div class="faq-list">
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>Cum pot face o programare?</span>
+                        <span>How can I make an appointment?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Poți face o programare direct de pe site, accesând pagina "Programare" și completând formularul cu datele tale și serviciul dorit. Vei primi confirmarea pe email.</p>
+                        <p>You can make an appointment directly from the website by accessing the "Booking" page and filling out the form with your details and desired service. You will receive confirmation via email.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>Ce produse folosiți?</span>
+                        <span>What products do you use?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Folosesc exclusiv produse profesionale de la branduri renumite precum L'Oréal Professionnel, Wella și Olaplex pentru a asigura cele mai bune rezultate și sănătatea părului tău.</p>
+                        <p>I exclusively use professional products from renowned brands such as L'Oréal Professionnel, Wella, and Olaplex to ensure the best results and the health of your hair.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>Cât durează o ședință de colorare?</span>
+                        <span>How long does a coloring session take?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Durata variază în funcție de serviciu: o vopsire simplă durează aproximativ 1.5-2 ore, în timp ce un balayage complet poate dura 3-4 ore.</p>
+                        <p>The duration varies depending on the service: a simple coloring takes approximately 1.5-2 hours, while a full balayage can take 3-4 hours.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>Trebuie să am experiență pentru cursuri?</span>
+                        <span>Do I need experience for the courses?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Nu neapărat! Am cursuri pentru toate nivelurile, de la începători până la avansați. În descrierea fiecărui curs vei găsi cerințele specifice.</p>
+                        <p>Not necessarily! I have courses for all levels, from beginners to advanced. You will find the specific requirements in each course description.</p>
                     </div>
                 </div>
             </div>
@@ -213,12 +214,12 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <h3>Daniela Mancos</h3>
-                    <p>Stilist profesionist</p>
+                    <p>Professional Stylist</p>
                 </div>
                 <div class="footer-links">
-                    <a href="index.html">Acasă</a>
-                    <a href="programare.html">Programare</a>
-                    <a href="cursuri.html">Cursuri</a>
+                    <a href="index.html">Home</a>
+                    <a href="programare.html">Booking</a>
+                    <a href="cursuri.html">Courses</a>
                     <a href="contact.html">Contact</a>
                 </div>
                 <div class="footer-social">
@@ -228,7 +229,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Daniela Mancos. Toate drepturile rezervate.</p>
+                <p>&copy; 2026 Daniela Mancos. All rights reserved.</p>
             </div>
         </div>
     </footer>
