@@ -11,17 +11,24 @@ function initContactForm() {
     
     if (!form) return;
     
-    // Form submission - works with Netlify when deployed, shows success locally
+    // Form submission - handle with inline success message
     form.addEventListener('submit', function(event) {
-        // Only prevent default on localhost for testing
-        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-            event.preventDefault();
-            event.stopPropagation();
-            event.stopImmediatePropagation();
-            showContactSuccess();
-            return false;
-        }
-        // On Netlify, form will submit normally
+        event.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(form);
+        
+        // Submit to Netlify
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData).toString()
+        })
+        .then(() => showContactSuccess())
+        .catch((error) => {
+            console.error('Error:', error);
+            alert('A apărut o eroare. Te rugăm să încerci din nou.');
+        });
     }, true);
 }
 
