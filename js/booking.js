@@ -49,7 +49,9 @@ function initBookingForm() {
         // Only prevent default on localhost for testing
         if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
             event.preventDefault();
+            event.stopPropagation();
             showBookingSuccess();
+            return false;
         }
         // On Netlify, form will submit normally
     });
