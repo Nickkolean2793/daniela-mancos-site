@@ -130,52 +130,5 @@ function validateDate(input) {
     }
 }
 
-async function handleBookingSubmit(event) {
-    event.preventDefault();
-    
-    const form = event.target;
-    const submitBtn = form.querySelector('button[type="submit"]');
-    
-    // Get category label
-    const categorySelect = form.querySelector('#serviceCategory');
-    const categoryLabel = categorySelect ? categorySelect.options[categorySelect.selectedIndex].text : '';
-    
-    // Get service label
-    const serviceSelect = form.querySelector('#service');
-    const serviceLabel = serviceSelect ? serviceSelect.options[serviceSelect.selectedIndex].text : '';
-    
-    // Get form data
-    const formData = {
-        name: form.querySelector('#name').value,
-        email: form.querySelector('#email').value,
-        phone: form.querySelector('#phone').value,
-        category: categorySelect ? categorySelect.value : '',
-        categoryLabel: categoryLabel,
-        service: serviceSelect ? serviceSelect.value : '',
-        serviceLabel: serviceLabel,
-        date: form.querySelector('#date').value,
-        time: form.querySelector('#time').value,
-        notes: form.querySelector('#notes').value || '',
-        timestamp: new Date().toISOString()
-    };
-
-    // Validate weekend (extra check)
-    const selectedDate = new Date(formData.date);
-    if (isWeekend(selectedDate)) {
-        showNotification('Programările sunt disponibile doar în zilele lucrătoare.', 'error');
-        // Only validate weekend, let Netlify handle submission
-        const form = event.target;
-        const dateInput = form.querySelector('#date');
-        if (dateInput && isWeekend(new Date(dateInput.value))) {
-            showNotification('Programările sunt disponibile doar în zilele lucrătoare.', 'error');
-            dateInput.value = formatDateForInput(getNextWorkingDay(new Date(dateInput.value)));
-            return;
-        }
-        // Allow native form submission
-        // No preventDefault, no AJAX
-        // Netlify will handle email notification
-        // Optionally, show loading state
-        // (remove if not needed)
-        // form.querySelector('button[type="submit"]').disabled = true;
-        // form.querySelector('button[type="submit"]').innerHTML = '<i class="fas fa-spinner fa-spin"></i> Se trimite...';
-        if (response.ok && result.success) {
+// Form submission is now handled by Netlify Forms
+// The handleBookingSubmit function has been removed
