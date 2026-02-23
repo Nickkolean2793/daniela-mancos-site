@@ -5,12 +5,8 @@
   publish = "."
   # Empty command prevents automatic builds - you'll manually deploy via Netlify dashboard
   command = ""
-
-# Prevent automatic production deploys to save credits (15 credits per deploy)
-# You can still manually trigger deploys in Netlify dashboard when ready
-[build.ignore]
-  # Ignore builds for documentation changes
-  command = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- README.md CLAUDE.md 'New Text Document.txt'"
+  # Ignore builds for documentation changes only
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- README.md CLAUDE.md 'New Text Document.txt'"
 
 # Redirects for SPA (if needed)
 [[redirects]]
