@@ -1052,10 +1052,12 @@ p {
     justify-content: center;
     padding: 24px;
     backdrop-filter: blur(4px);
+    pointer-events: none;
 }
 
 .modal.active {
     display: flex;
+    pointer-events: auto;
 }
 
 .modal-content {
