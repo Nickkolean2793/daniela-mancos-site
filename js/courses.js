@@ -2,46 +2,15 @@
 // DANIELA MANCOS - Courses System
 // ==========================================
 
-document.addEventListener('DOMContentLoaded', function() {
-    initCourseModal();
-    initCourseForm();
-});
-
-// ==========================================
-// Course Modal
-// ==========================================
-function initCourseModal() {
-    const modal = document.getElementById('courseModal');
-    const closeBtn = modal?.querySelector('.modal-close');
-    
-    if (!modal) return;
-
-    // Close on X click
-    if (closeBtn) {
-        closeBtn.addEventListener('click', closeCourseModal);
-    }
-
-    // Close on overlay click
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            closeCourseModal();
-        }
-    });
-
-    // Close on Escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
-            closeCourseModal();
-        }
-    });
-}
-
+// Global functions for modal control
 function openCourseModal(courseName, coursePrice) {
+    console.log('openCourseModal called with:', courseName, coursePrice);
+    
     const modal = document.getElementById('courseModal');
     const modalInfo = document.getElementById('modalCourseInfo');
     
     if (!modal) {
-        console.error('Modal not found');
+        console.error('Modal element not found!');
         return;
     }
 
@@ -60,7 +29,7 @@ function openCourseModal(courseName, coursePrice) {
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
     
-    console.log('Modal opened for:', courseName);
+    console.log('Modal should be visible now');
 }
 
 function closeCourseModal() {
@@ -78,11 +47,6 @@ function closeCourseModal() {
     }
 }
 
-// Make functions globally available
-window.openCourseModal = openCourseModal;
-window.closeCourseModal = closeCourseModal;
-
-// Show success overlay for course enrollment
 function showCourseSuccess() {
     const overlay = document.getElementById('courseSuccessOverlay');
     const iframe = document.getElementById('courseIframe');
@@ -95,81 +59,50 @@ function showCourseSuccess() {
     }
 }
 
+// Make functions globally available
+window.openCourseModal = openCourseModal;
+window.closeCourseModal = closeCourseModal;
 window.showCourseSuccess = showCourseSuccess;
 
-// ==========================================
-// Course Form (Legacy - keeping for compatibility)
-// ==========================================
-function initCourseForm() {
-    // Google Forms now handles submission
-    console.log('Course forms initialized');
-}
+// Initialize modal event listeners when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing course modal...');
+    initCourseModal();
+});
 
-async function handleCourseSubmit(event) {
-    event.preventDefault();
+// Initialize modal functionality
+function initCourseModal() {
+    const modal = document.getElementById('courseModal');
+    const closeBtn = modal?.querySelector('.modal-close');
     
-    const form = event.target;
-    const submitBtn = form.querySelector('button[type="submit"]');
-    
-    // Get form data
-    const formData = {
-        courseName: form.querySelector('#courseName').value,
-        coursePrice: form.querySelector('#coursePrice').value,
-        studentName: form.querySelector('#studentName').value,
-        studentEmail: form.querySelector('#studentEmail').value,
-        studentPhone: form.querySelector('#studentPhone').value,
-        experience: form.querySelector('#experience').value,
-        message: form.querySelector('#courseMessage').value || '',
-        timestamp: new Date().toISOString()
-    };
-
-    // Disable button and show loading
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Se trimite...';
-
-    try {
-        // Simulate API call
-        await simulateCourseEnrollmentAPI(formData);
-        
-        // Show success
-        form.classList.add('hidden');
-        document.getElementById('courseSuccess').classList.remove('hidden');
-        
-        // Show notification
-        showNotification('Înscrierea a fost trimisă cu succes!');
-        
-        // Store enrollment locally
-        saveCourseEnrollmentLocally(formData);
-        
-        console.log('Course enrollment submitted:', formData);
-        console.log('Email notification would be sent to: nicolaebordei3@gmail.com');
-        
-        // Close modal after 3 seconds
-        setTimeout(closeCourseModal, 3000);
-
-    } catch (error) {
-        console.error('Enrollment error:', error);
-        showNotification('A apărut o eroare. Vă rugăm încercați din nou.', 'error');
-    } finally {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = 'Trimite Înscrierea';
+    if (!modal) {
+        console.error('Course modal not found in DOM');
+        return;
     }
-}
 
-// Simulate API call
-function simulateCourseEnrollmentAPI(data) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if (Math.random() > 0.05) {
-                resolve({ success: true, enrollmentId: 'EN' + Date.now() });
-            } else {
-                reject(new Error('Server error'));
-            }
-        }, 1500);
+    console.log('Course modal found, setting up event listeners');
+
+    // Close on X click
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            closeCourseModal();
+        });
+    }
+
+    // Close on overlay click
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeCourseModal();
+        }
     });
-}
 
-            // Allow native form submission for Netlify Forms
-            // No preventDefault, no AJAX
-            // Netlify will handle email notification
-    enrollments.push({
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeCourseModal();
+        }
+    });
+    
+    console.log('Modal event listeners set up successfully');
+}
