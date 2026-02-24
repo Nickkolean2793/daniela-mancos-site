@@ -148,53 +148,24 @@
         <div class="modal-content">
             <span class="modal-close">&times;</span>
             <h2>Înscriere la curs</h2>
-            <p id="modalCourseInfo"></p>
+            <p id="modalCourseInfo" style="margin-bottom: 1.5rem; color: var(--gray-600);"></p>
             
-            <form id="courseForm" class="course-form" name="course" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-                <input type="hidden" name="form-name" value="course">
-                <div style="display:none">
-                    <input name="bot-field">
-                </div>
-                <input type="hidden" id="courseName" name="courseName">
-                <input type="hidden" id="coursePrice" name="coursePrice">
-                
-                <div class="form-group">
-                    <label for="studentName">Nume Complet *</label>
-                    <input type="text" id="studentName" name="studentName" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="studentEmail">Email *</label>
-                    <input type="email" id="studentEmail" name="studentEmail" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="studentPhone">Telefon *</label>
-                    <input type="tel" id="studentPhone" name="studentPhone" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="experience">Nivel de experiență</label>
-                    <select id="experience" name="experience">
-                        <option value="beginner">Începător</option>
-                        <option value="intermediate">Intermediar</option>
-                        <option value="advanced">Avansat</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="courseMessage">Mesaj (opțional)</label>
-                    <textarea id="courseMessage" name="courseMessage" rows="3"></textarea>
-                </div>
-
-                <button type="submit" class="btn btn-primary btn-full">Trimite înscrierea</button>
-            </form>
-
-            <div id="courseSuccess" class="booking-success hidden">
-                <i class="fas fa-check-circle"></i>
-                <h3>Înscriere trimisă!</h3>
-                <p>Te vom contacta în curând cu detalii despre curs.</p>
-            </div>
+            <!-- Integrare Google Forms -->
+            <!-- Pentru a obține URL-ul Google Form:
+                 1. Creează un formular la forms.google.com
+                 2. Adaugă câmpuri: Nume curs, Nume complet, Email, Telefon, Nivel experiență, Mesaj
+                 3. Click pe butonul Send → Click pe iconul < > (embed)
+                 4. Copiază URL-ul din iframe src
+                 5. Înlocuiește YOUR_COURSE_FORM_URL mai jos -->
+            <iframe src="YOUR_COURSE_FORM_URL" 
+                    width="100%" 
+                    height="700" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0"
+                    style="border-radius: 8px; background: white;">
+                Se încarcă formularul...
+            </iframe>
         </div>
     </div>
 

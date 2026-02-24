@@ -108,41 +108,25 @@
                 </div>
 
                 <div class="contact-form-container">
-                    <form id="contactForm" class="contact-form" name="contact" method="POST" data-netlify="true">
-                        <input type="hidden" name="form-name" value="contact">
-                        <h3>Trimite un mesaj</h3>
-                        
-                        <div class="form-group">
-                            <label for="contactName">Nume *</label>
-                            <input type="text" id="contactName" name="name" required placeholder="Numele tău">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="contactEmail">E-mail *</label>
-                            <input type="email" id="contactEmail" name="email" required placeholder="email@exemplu.com">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="contactSubject">Subiect</label>
-                            <input type="text" id="contactSubject" name="subject" placeholder="Despre ce vrei să discutăm?">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="contactMessage">Mesaj *</label>
-                            <textarea id="contactMessage" name="message" rows="5" required placeholder="Scrie mesajul tău aici..."></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary btn-full">
-                            <i class="fas fa-paper-plane"></i> Trimite mesajul
-                        </button>
-                    </form>
-
-                    <div id="contactSuccess" class="booking-success hidden">
-                        <i class="fas fa-check-circle"></i>
-                        <h3>Mesaj Trimis!</h3>
-                        <p>Îți voi răspunde în cel mai scurt timp posibil.</p>
-                        <button class="btn btn-outline" onclick="resetContactForm()">Trimite alt mesaj</button>
-                    </div>
+                    <h3>Trimite un mesaj</h3>
+                    <p style="margin-bottom: 1.5rem; color: var(--gray-600);">Completează formularul de mai jos și îți voi răspunde în cel mai scurt timp posibil.</p>
+                    
+                    <!-- Integrare Google Forms -->
+                    <!-- Pentru a obține URL-ul Google Form:
+                         1. Creează un formular la forms.google.com
+                         2. Adaugă câmpuri: Nume, Email, Subiect, Mesaj
+                         3. Click pe butonul Send → Click pe iconul < > (embed)
+                         4. Copiază URL-ul din iframe src
+                         5. Înlocuiește YOUR_GOOGLE_FORM_URL mai jos -->
+                    <iframe src="YOUR_GOOGLE_FORM_URL" 
+                            width="100%" 
+                            height="800" 
+                            frameborder="0" 
+                            marginheight="0" 
+                            marginwidth="0"
+                            style="border-radius: 8px; background: white;">
+                        Se încarcă formularul...
+                    </iframe>
                 </div>
             </div>
         </div>

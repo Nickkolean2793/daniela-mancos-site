@@ -108,41 +108,25 @@
                 </div>
 
                 <div class="contact-form-container">
-                    <form id="contactForm" class="contact-form" name="contact" method="POST" data-netlify="true">
-                        <input type="hidden" name="form-name" value="contact">
-                        <h3>Send a message</h3>
-                        
-                        <div class="form-group">
-                            <label for="contactName">Name *</label>
-                            <input type="text" id="contactName" name="name" required placeholder="Your name">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="contactEmail">Email *</label>
-                            <input type="email" id="contactEmail" name="email" required placeholder="email@example.com">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="contactSubject">Subject</label>
-                            <input type="text" id="contactSubject" name="subject" placeholder="What would you like to discuss?">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="contactMessage">Message *</label>
-                            <textarea id="contactMessage" name="message" rows="5" required placeholder="Write your message here..."></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary btn-full">
-                            <i class="fas fa-paper-plane"></i> Send message
-                        </button>
-                    </form>
-
-                    <div id="contactSuccess" class="booking-success hidden">
-                        <i class="fas fa-check-circle"></i>
-                        <h3>Message Sent!</h3>
-                        <p>I will respond as soon as possible.</p>
-                        <button class="btn btn-outline" onclick="resetContactForm()">Send another message</button>
-                    </div>
+                    <h3>Send a message</h3>
+                    <p style="margin-bottom: 1.5rem; color: var(--gray-600);">Fill out the form below and I'll get back to you as soon as possible.</p>
+                    
+                    <!-- Google Forms Integration -->
+                    <!-- To get your Google Form embed URL:
+                         1. Create a form at forms.google.com
+                         2. Add fields: Name, Email, Subject, Message
+                         3. Click Send button → Click the < > (embed) icon
+                         4. Copy the iframe src URL
+                         5. Replace YOUR_GOOGLE_FORM_URL below -->
+                    <iframe src="YOUR_GOOGLE_FORM_URL" 
+                            width="100%" 
+                            height="800" 
+                            frameborder="0" 
+                            marginheight="0" 
+                            marginwidth="0"
+                            style="border-radius: 8px; background: white;">
+                        Loading form...
+                    </iframe>
                 </div>
             </div>
         </div>
