@@ -90,9 +90,9 @@ function initCourseModal() {
         });
     }
 
-    // Close on overlay click
+    // Close on overlay click (only when modal is active)
     modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
+        if (e.target === modal && modal.classList.contains('active')) {
             closeCourseModal();
         }
     });
