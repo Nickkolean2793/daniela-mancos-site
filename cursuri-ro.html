@@ -151,13 +151,8 @@
             <p id="modalCourseInfo" style="margin-bottom: 1.5rem; color: var(--gray-600);"></p>
             
             <!-- Integrare Google Forms -->
-            <!-- Pentru a obține URL-ul Google Form:
-                 1. Creează un formular la forms.google.com
-                 2. Adaugă câmpuri: Nume curs, Nume complet, Email, Telefon, Nivel experiență, Mesaj
-                 3. Click pe butonul Send → Click pe iconul < > (embed)
-                 4. Copiază URL-ul din iframe src
-                 5. Înlocuiește YOUR_COURSE_FORM_URL mai jos -->
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc7FRsWYiM_eoheE6DluvlQ2pmnLQborq5K335Us-v2G3ZMrw/viewform?usp=publish-editor" 
+            <iframe id="courseIframe" 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSc7FRsWYiM_eoheE6DluvlQ2pmnLQborq5K335Us-v2G3ZMrw/viewform?embedded=true" 
                     width="100%" 
                     height="700" 
                     frameborder="0" 
@@ -166,6 +161,19 @@
                     style="border-radius: 8px; background: white;">
                 Se încarcă formularul...
             </iframe>
+            
+            <!-- Success Overlay -->
+            <div id="courseSuccessOverlay" class="form-success-overlay" style="display: none;">
+                <div class="success-animation">
+                    <div class="checkmark-circle">
+                        <div class="checkmark-stem"></div>
+                        <div class="checkmark-kick"></div>
+                    </div>
+                    <h3>Înscriere trimisă!</h3>
+                    <p>Te vom contacta în curând cu detalii despre curs.</p>
+                    <button class="btn btn-primary" onclick="closeCourseModal()">Închide</button>
+                </div>
+            </div>
         </div>
     </div>
 

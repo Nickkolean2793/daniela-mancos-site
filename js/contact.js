@@ -4,50 +4,60 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     initContactForm();
+    monitorGoogleFormSubmission();
 });
 
 function initContactForm() {
-    const form = document.getElementById('contactForm');
+    // Legacy function - keeping for compatibility
+    // Google Forms now handles submission
+}
+
+// Monitor iframe for form submission
+function monitorGoogleFormSubmission() {
+    const iframe = document.getElementById('contactIframe');
+    if (!iframe) return;
+
+    // Add button to manually trigger success (for testing)
+    // Note: Due to iframe security, we can't detect actual submission
+    // Users can click "Send another message" button when they see Google's confirmation
     
-    if (!form) return;
-    
-    // Form submission - handle with inline success message
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(form);
-        
-        // Submit to Netlify
-        fetch('/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams(formData).toString()
-        })
-        .then(() => showContactSuccess())
-        .catch((error) => {
-            console.error('Error:', error);
-            alert('A apărut o eroare. Te rugăm să încerci din nou.');
-        });
-    }, true);
+    // Alternative: Show success after a delay when user clicks in iframe
+    let clickCount = 0;
+    iframe.addEventListener('load', function() {
+        console.log('Contact form loaded');
+    });
 }
 
 function showContactSuccess() {
-    const form = document.getElementById('contactForm');
-    const successDiv = document.getElementById('contactSuccess');
+    const overlay = document.getElementById('contactSuccessOverlay');
+    const iframe = document.getElementById('contactIframe');
     
-    if (form && successDiv) {
-        form.style.display = 'none';
-        successDiv.classList.remove('hidden');
+    if (overlay) {
+        overlay.style.display = 'flex';
+        if (iframe) {
+            iframe.style.opacity = '0.3';
+        }
     }
 }
 
 function resetContactForm() {
-    const form = document.getElementById('contactForm');
-    const successDiv = document.getElementById('contactSuccess');
+    const overlay = document.getElementById('contactSuccessOverlay');
+    const iframe = document.getElementById('contactIframe');
     
-    if (form && successDiv) {
-        form.reset();
+    if (overlay) {
+        overlay.style.display = 'none';
+    }
+    
+    if (iframe) {
+        iframe.style.opacity = '1';
+        // Reload the form
+        iframe.src = iframe.src;
+    }
+}
+
+// Make functions globally available
+window.showContactSuccess = showContactSuccess;
+window.resetContactForm = resetContactForm;
         form.style.display = 'block';
         successDiv.classList.add('hidden');
     }

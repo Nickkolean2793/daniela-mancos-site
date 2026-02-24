@@ -151,13 +151,8 @@
             <p id="modalCourseInfo" style="margin-bottom: 1.5rem; color: var(--gray-600);"></p>
             
             <!-- Google Forms Integration -->
-            <!-- To get your Google Form embed URL:
-                 1. Create a form at forms.google.com
-                 2. Add fields: Course Name, Full Name, Email, Phone, Experience Level, Message
-                 3. Click Send button → Click the < > (embed) icon
-                 4. Copy the iframe src URL
-                 5. Replace YOUR_COURSE_FORM_URL below -->
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc7FRsWYiM_eoheE6DluvlQ2pmnLQborq5K335Us-v2G3ZMrw/viewform?usp=publish-editor" 
+            <iframe id="courseIframe" 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSc7FRsWYiM_eoheE6DluvlQ2pmnLQborq5K335Us-v2G3ZMrw/viewform?embedded=true" 
                     width="100%" 
                     height="700" 
                     frameborder="0" 
@@ -166,6 +161,19 @@
                     style="border-radius: 8px; background: white;">
                 Loading form...
             </iframe>
+            
+            <!-- Success Overlay -->
+            <div id="courseSuccessOverlay" class="form-success-overlay" style="display: none;">
+                <div class="success-animation">
+                    <div class="checkmark-circle">
+                        <div class="checkmark-stem"></div>
+                        <div class="checkmark-kick"></div>
+                    </div>
+                    <h3>Enrollment Sent!</h3>
+                    <p>We will contact you soon with details about the course.</p>
+                    <button class="btn btn-primary" onclick="closeCourseModal()">Close</button>
+                </div>
+            </div>
         </div>
     </div>
 

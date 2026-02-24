@@ -107,18 +107,13 @@
                     </div>
                 </div>
 
-                <div class="contact-form-container">
+                <div class="contact-form-container" style="position: relative;">
                     <h3>Trimite un mesaj</h3>
                     <p style="margin-bottom: 1.5rem; color: var(--gray-600);">Completează formularul de mai jos și îți voi răspunde în cel mai scurt timp posibil.</p>
                     
                     <!-- Integrare Google Forms -->
-                    <!-- Pentru a obține URL-ul Google Form:
-                         1. Creează un formular la forms.google.com
-                         2. Adaugă câmpuri: Nume, Email, Subiect, Mesaj
-                         3. Click pe butonul Send → Click pe iconul < > (embed)
-                         4. Copiază URL-ul din iframe src
-                         5. Înlocuiește YOUR_GOOGLE_FORM_URL mai jos -->
-                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdPp8aexh_0-RH3M4DXtZ1EtSvMcjvoACTEKxQNGv2uJB_X9A/viewform?usp=publish-editor" 
+                    <iframe id="contactIframe" 
+                            src="https://docs.google.com/forms/d/e/1FAIpQLSdPp8aexh_0-RH3M4DXtZ1EtSvMcjvoACTEKxQNGv2uJB_X9A/viewform?embedded=true" 
                             width="100%" 
                             height="800" 
                             frameborder="0" 
@@ -127,6 +122,24 @@
                             style="border-radius: 8px; background: white;">
                         Se încarcă formularul...
                     </iframe>
+                    
+                    <p style="text-align: center; margin-top: 16px; color: var(--gray-500); font-size: 14px;">
+                        După trimitere, apasă aici pentru confirmare: 
+                        <button onclick="showContactSuccess()" class="btn btn-outline" style="margin-left: 8px; padding: 8px 16px; font-size: 14px;">Am trimis formularul</button>
+                    </p>
+                    
+                    <!-- Success Overlay -->
+                    <div id="contactSuccessOverlay" class="form-success-overlay" style="display: none;">
+                        <div class="success-animation">
+                            <div class="checkmark-circle">
+                                <div class="checkmark-stem"></div>
+                                <div class="checkmark-kick"></div>
+                            </div>
+                            <h3>Mesaj Trimis!</h3>
+                            <p>Îți voi răspunde în cel mai scurt timp posibil.</p>
+                            <button class="btn btn-primary" onclick="resetContactForm()">Trimite alt mesaj</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
