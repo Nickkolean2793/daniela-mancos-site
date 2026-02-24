@@ -39,33 +39,28 @@ function initCourseModal() {
 function openCourseModal(courseName, coursePrice) {
     const modal = document.getElementById('courseModal');
     const modalInfo = document.getElementById('modalCourseInfo');
-    const courseNameInput = document.getElementById('courseName');
-    const coursePriceInput = document.getElementById('coursePrice');
-    const form = document.getElementById('courseForm');
-    const success = document.getElementById('courseSuccess');
     
-    if (!modal) return;
+    if (!modal) {
+        console.error('Modal not found');
+        return;
+    }
 
     // Set course info
-    modalInfo.textContent = `${courseName} - ${coursePrice}`;
-    courseNameInput.value = courseName;
-    coursePriceInput.value = coursePrice;
+    if (modalInfo) {
+        modalInfo.textContent = `${courseName} - ${coursePrice}`;
+    }
     
-    // Reset form state
-    form.reset();
-    courseNameInput.value = courseName;
-    coursePriceInput.value = coursePrice;
-    form.classList.remove('hidden');
-    success.classList.add('hidden');
+    // Hide success overlay if visible
+    const successOverlay = document.getElementById('courseSuccessOverlay');
+    if (successOverlay) {
+        successOverlay.style.display = 'none';
+    }
     
     // Show modal
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
     
-    // Focus first input
-    setTimeout(() => {
-        document.getElementById('studentName').focus();
-    }, 300);
+    console.log('Modal opened for:', courseName);
 }
 
 function closeCourseModal() {
@@ -74,6 +69,12 @@ function closeCourseModal() {
     if (modal) {
         modal.classList.remove('active');
         document.body.style.overflow = '';
+        
+        // Reset iframe
+        const iframe = document.getElementById('courseIframe');
+        if (iframe) {
+            iframe.src = iframe.src;
+        }
     }
 }
 
@@ -81,15 +82,27 @@ function closeCourseModal() {
 window.openCourseModal = openCourseModal;
 window.closeCourseModal = closeCourseModal;
 
+// Show success overlay for course enrollment
+function showCourseSuccess() {
+    const overlay = document.getElementById('courseSuccessOverlay');
+    const iframe = document.getElementById('courseIframe');
+    
+    if (overlay) {
+        overlay.style.display = 'flex';
+    }
+    if (iframe) {
+        iframe.style.opacity = '0.3';
+    }
+}
+
+window.showCourseSuccess = showCourseSuccess;
+
 // ==========================================
-// Course Form
+// Course Form (Legacy - keeping for compatibility)
 // ==========================================
 function initCourseForm() {
-    const form = document.getElementById('courseForm');
-    
-    if (!form) return;
-    
-    form.addEventListener('submit', handleCourseSubmit);
+    // Google Forms now handles submission
+    console.log('Course forms initialized');
 }
 
 async function handleCourseSubmit(event) {
