@@ -1,5 +1,6 @@
 // ==========================================
 // DANIELA MANCOS - Courses System
+// Updated: 2026-02-24
 // ==========================================
 
 // Global functions for modal control
