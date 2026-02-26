@@ -58,10 +58,3 @@ function resetContactForm() {
 // Make functions globally available
 window.showContactSuccess = showContactSuccess;
 window.resetContactForm = resetContactForm;
-        form.style.display = 'block';
-        successDiv.classList.add('hidden');
-    }
-}
-
-// Make functions globally available
-window.resetContactForm = resetContactForm;
