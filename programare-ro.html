@@ -23,6 +23,7 @@
                 <li><a href="index-ro.html" class="nav-link">Acasă</a></li>
                 <li><a href="programare-ro.html" class="nav-link active">Programare</a></li>
                 <li><a href="cursuri-ro.html" class="nav-link">Cursuri</a></li>
+                <li><a href="preturi-ro.html" class="nav-link">Prețuri</a></li>
                 <li><a href="contact-ro.html" class="nav-link">Contact</a></li>
                 <li><a href="programare.html" class="nav-link lang-switch" title="Switch to English">🇬🇧 EN</a></li>
             </ul>
@@ -45,6 +46,40 @@
                 <div class="booking-info">
                     <h2>Programează-te</h2>
                     <p>Selectează data și ora preferată din calendarul de mai jos. Sunt afișate doar intervalele disponibile pentru a preveni suprapunerile.</p>
+                    
+                    <!-- Service Selector -->
+                    <div class="service-selector" style="margin: 25px 0; padding: 20px; background: linear-gradient(135deg, var(--primary-light) 0%, #fff 100%); border-radius: 12px; border: 2px solid var(--primary-color);">
+                        <label for="serviceSelect" style="display: block; font-weight: 600; color: var(--primary-color); margin-bottom: 10px;">
+                            <i class="fas fa-cut"></i> Ce serviciu dorești?
+                        </label>
+                        <select id="serviceSelect" style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; background: white; cursor: pointer;">
+                            <option value="">-- Selectează un serviciu --</option>
+                            <optgroup label="Servicii Colorare">
+                                <option value="Colorare Simplă (de la 80€)">Colorare Simplă (de la 80€)</option>
+                                <option value="Balayage Păr Scurt (de la 100€)">Balayage Păr Scurt (de la 100€)</option>
+                                <option value="Balayage Păr Mediu (de la 150€)">Balayage Păr Mediu (de la 150€)</option>
+                                <option value="Balayage Păr Lung (de la 200€)">Balayage Păr Lung (de la 200€)</option>
+                                <option value="Blond Total (de la 100€)">Blond Total (de la 100€)</option>
+                            </optgroup>
+                            <optgroup label="Servicii Tratamente">
+                                <option value="Keratină/Nanoplastie Scurt (de la 100€)">Keratină/Nanoplastie Scurt (de la 100€)</option>
+                                <option value="Keratină/Nanoplastie Mediu (de la 150€)">Keratină/Nanoplastie Mediu (de la 150€)</option>
+                                <option value="Keratină/Nanoplastie Lung (de la 200€)">Keratină/Nanoplastie Lung (de la 200€)</option>
+                            </optgroup>
+                            <optgroup label="Tunsori">
+                                <option value="Tuns (de la 35€)">Tuns (de la 35€)</option>
+                            </optgroup>
+                            <optgroup label="Altele">
+                                <option value="Consultație">Consultație</option>
+                                <option value="Alt Serviciu">Alt Serviciu</option>
+                            </optgroup>
+                        </select>
+                        <p id="selectedServiceNote" style="display: none; margin-top: 12px; padding: 10px; background: #d4edda; border-radius: 6px; color: #155724; font-size: 14px;">
+                            <i class="fas fa-check-circle"></i> <strong>Selectat:</strong> <span id="selectedServiceText"></span>
+                            <br><small>Te rugăm să menționezi acest serviciu când completezi detaliile programării.</small>
+                        </p>
+                    </div>
+                    
                     <div class="booking-features">
                         <div class="booking-feature"><i class="fas fa-calendar-check"></i> Disponibilitate în timp real</div>
                         <div class="booking-feature"><i class="fas fa-clock"></i> Confirmare instantanee</div>
@@ -73,10 +108,11 @@
                     <p>Stilist profesionist</p>
                 </div>
                 <div class="footer-links">
-                    <a href="index.html">Acasă</a>
-                    <a href="programare.html">Programare</a>
-                    <a href="cursuri.html">Cursuri</a>
-                    <a href="contact.html">Contact</a>
+                    <a href="index-ro.html">Acasă</a>
+                    <a href="programare-ro.html">Programare</a>
+                    <a href="cursuri-ro.html">Cursuri</a>
+                    <a href="preturi-ro.html">Prețuri</a>
+                    <a href="contact-ro.html">Contact</a>
                 </div>
                 <div class="footer-social">
                     <a href="https://facebook.com/daniela.mancos.5" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -92,5 +128,18 @@
 
     <script src="js/main.js"></script>
     <script src="js/booking.js"></script>
+    <script>
+        // Service selector functionality
+        document.getElementById('serviceSelect').addEventListener('change', function() {
+            const note = document.getElementById('selectedServiceNote');
+            const text = document.getElementById('selectedServiceText');
+            if (this.value) {
+                text.textContent = this.value;
+                note.style.display = 'block';
+            } else {
+                note.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>

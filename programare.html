@@ -23,6 +23,7 @@
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="programare.html" class="nav-link active">Booking</a></li>
                 <li><a href="cursuri.html" class="nav-link">Courses</a></li>
+                <li><a href="prices.html" class="nav-link">Prices</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
                 <li><a href="programare-ro.html" class="nav-link lang-switch" title="Switch to Romanian">🇷🇴 RO</a></li>
             </ul>
@@ -45,6 +46,40 @@
                 <div class="booking-info">
                     <h2>Book Your Appointment</h2>
                     <p>Select your preferred date and time from the calendar below. Only available time slots are shown to prevent double-bookings.</p>
+                    
+                    <!-- Service Selector -->
+                    <div class="service-selector" style="margin: 25px 0; padding: 20px; background: linear-gradient(135deg, var(--primary-light) 0%, #fff 100%); border-radius: 12px; border: 2px solid var(--primary-color);">
+                        <label for="serviceSelect" style="display: block; font-weight: 600; color: var(--primary-color); margin-bottom: 10px;">
+                            <i class="fas fa-cut"></i> What service would you like?
+                        </label>
+                        <select id="serviceSelect" style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; background: white; cursor: pointer;">
+                            <option value="">-- Select a service --</option>
+                            <optgroup label="Coloring Services">
+                                <option value="Simple Coloring (from 80€)">Simple Coloring (from 80€)</option>
+                                <option value="Balayage Short Hair (from 100€)">Balayage Short Hair (from 100€)</option>
+                                <option value="Balayage Medium Hair (from 150€)">Balayage Medium Hair (from 150€)</option>
+                                <option value="Balayage Long Hair (from 200€)">Balayage Long Hair (from 200€)</option>
+                                <option value="Total Blonde (from 100€)">Total Blonde (from 100€)</option>
+                            </optgroup>
+                            <optgroup label="Treatment Services">
+                                <option value="Keratin/Nanoplasty Short (from 100€)">Keratin/Nanoplasty Short (from 100€)</option>
+                                <option value="Keratin/Nanoplasty Medium (from 150€)">Keratin/Nanoplasty Medium (from 150€)</option>
+                                <option value="Keratin/Nanoplasty Long (from 200€)">Keratin/Nanoplasty Long (from 200€)</option>
+                            </optgroup>
+                            <optgroup label="Haircuts">
+                                <option value="Haircut (from 35€)">Haircut (from 35€)</option>
+                            </optgroup>
+                            <optgroup label="Other">
+                                <option value="Consultation">Consultation</option>
+                                <option value="Other Service">Other Service</option>
+                            </optgroup>
+                        </select>
+                        <p id="selectedServiceNote" style="display: none; margin-top: 12px; padding: 10px; background: #d4edda; border-radius: 6px; color: #155724; font-size: 14px;">
+                            <i class="fas fa-check-circle"></i> <strong>Selected:</strong> <span id="selectedServiceText"></span>
+                            <br><small>Please mention this service when completing your booking details.</small>
+                        </p>
+                    </div>
+                    
                     <div class="booking-features">
                         <div class="booking-feature"><i class="fas fa-calendar-check"></i> Real-time availability</div>
                         <div class="booking-feature"><i class="fas fa-clock"></i> Instant confirmation</div>
@@ -76,6 +111,7 @@
                     <a href="index.html">Home</a>
                     <a href="programare.html">Booking</a>
                     <a href="cursuri.html">Courses</a>
+                    <a href="prices.html">Prices</a>
                     <a href="contact.html">Contact</a>
                 </div>
                 <div class="footer-social">
@@ -92,5 +128,18 @@
 
     <script src="js/main.js"></script>
     <script src="js/booking.js"></script>
+    <script>
+        // Service selector functionality
+        document.getElementById('serviceSelect').addEventListener('change', function() {
+            const note = document.getElementById('selectedServiceNote');
+            const text = document.getElementById('selectedServiceText');
+            if (this.value) {
+                text.textContent = this.value;
+                note.style.display = 'block';
+            } else {
+                note.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
