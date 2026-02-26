@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="static/img/favicon.jpg" type="image/jpeg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prețuri - Daniela Mancos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .pricing-section { padding: 60px 0; }
+        .pricing-category { margin-bottom: 60px; }
+        .pricing-category-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .pricing-category-title i { font-size: 1.5rem; }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+        .pricing-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        .pricing-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        .pricing-card .description {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .pricing-card .includes { margin-bottom: 20px; }
+        .pricing-card .includes h4 {
+            font-size: 0.9rem;
+            color: var(--gray-700);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .pricing-card .includes ul { list-style: none; padding: 0; }
+        .pricing-card .includes li {
+            padding: 6px 0;
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .pricing-card .includes li i { color: var(--primary); font-size: 0.8rem; }
+        .pricing-card .duration {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            padding: 10px 0;
+            border-top: 1px solid var(--gray-200);
+        }
+        .pricing-card .duration i { color: var(--primary); }
+        .pricing-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .pricing-option {
+            background: var(--gray-100);
+            border-radius: var(--radius-md);
+            padding: 15px;
+            text-align: center;
+        }
+        .pricing-option .label {
+            font-size: 0.8rem;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+        .pricing-option .price {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        .pricing-card .book-btn {
+            display: block;
+            text-align: center;
+            padding: 12px 24px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+        .pricing-card .book-btn:hover { background: var(--primary-dark); }
+        .course-note {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            margin-bottom: 40px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .course-note i { font-size: 2rem; opacity: 0.9; }
+        .course-note-content h4 { font-size: 1.2rem; margin-bottom: 10px; }
+        .course-note-content ul { list-style: none; padding: 0; margin: 0; }
+        .course-note-content li { padding: 5px 0; display: flex; align-items: center; gap: 10px; }
+        .course-note-content li i { font-size: 1rem; }
+        .services-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .services-table th, .services-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-200);
+        }
+        .services-table th { background: var(--gray-100); font-weight: 600; color: var(--dark); }
+        .services-table td { color: var(--gray-700); }
+        .services-table .price-cell { font-weight: 600; color: var(--primary); white-space: nowrap; }
+        .services-table tr:hover { background: var(--gray-50); }
+        @media (max-width: 768px) {
+            .pricing-options { grid-template-columns: 1fr; }
+            .course-note { flex-direction: column; text-align: center; }
+            .services-table { font-size: 0.9rem; }
+            .services-table th, .services-table td { padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index-ro.html" class="logo">
+                <span class="logo-text">Daniela Mancos</span>
+            </a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index-ro.html" class="nav-link">Acasă</a></li>
+                <li><a href="programare-ro.html" class="nav-link">Programare</a></li>
+                <li><a href="cursuri-ro.html" class="nav-link">Cursuri</a></li>
+                <li><a href="preturi-ro.html" class="nav-link active">Prețuri</a></li>
+                <li><a href="contact-ro.html" class="nav-link">Contact</a></li>
+                <li><a href="prices.html" class="nav-link lang-switch" title="Switch to English">🇬🇧 EN</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header" style="background-image: url('static/img/IMG_4701.JPG');">
+        <div class="page-header-overlay"></div>
+        <div class="page-header-content">
+            <h1>Prețuri</h1>
+            <p>Prețuri transparente pentru toate serviciile și cursurile</p>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section section">
+        <div class="container">
+
+            <!-- COURSES PRICING -->
+            <div class="section-header">
+                <h2 class="section-title">Prețuri Cursuri</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <!-- Hair Treatment Training -->
+            <div class="pricing-category">
+                <h3 class="pricing-category-title"><i class="fas fa-spa"></i> Cursuri Tratamente Păr</h3>
+                <div class="pricing-grid">
+                    
+                    <!-- Full Hair Treatment Course -->
+                    <div class="pricing-card">
+                        <h3>Curs Complet Tratamente Păr</h3>
+                        <p class="description">Instruire completă care acoperă toate tehnicile de tratament pentru rezultate profesionale.</p>
+                        <div class="includes">
+                            <h4>Include:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Îndreptare cu Keratină</li>
+                                <li><i class="fas fa-check"></i> Tratament Keratină</li>
+                                <li><i class="fas fa-check"></i> Nanoplastie</li>
+                                <li><i class="fas fa-check"></i> Botox Cald/Rece</li>
+                                <li><i class="fas fa-gift"></i> <strong>Cadou:</strong> Reconstrucția firului de păr</li>
+                            </ul>
+                        </div>
+                        <div class="duration">
+                            <i class="fas fa-clock"></i> 3 zile (10:00 - 18:00)
+                        </div>
+                        <div class="pricing-options">
+                            <div class="pricing-option">
+                                <div class="label">Individual</div>
+                                <div class="price">1200 €</div>
+                            </div>
+                            <div class="pricing-option">
+                                <div class="label">Grup (4 persoane)</div>
+                                <div class="price">900 €</div>
+                            </div>
+                        </div>
+                        <a href="#course-enrollment" class="book-btn">Înscrie-te Acum</a>
+                    </div>
+
+                    <!-- Keratin-Nanoplasty Course -->
+                    <div class="pricing-card">
+                        <h3>Curs Keratină & Nanoplastie</h3>
+                        <p class="description">Instruire specializată în tratamente cu keratină și tehnici de nanoplastie.</p>
+                        <div class="includes">
+                            <h4>Include:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Îndreptare cu Keratină</li>
+                                <li><i class="fas fa-check"></i> Tratament Keratină</li>
+                                <li><i class="fas fa-check"></i> Nanoplastie</li>
+                            </ul>
+                        </div>
+                        <div class="duration">
+                            <i class="fas fa-clock"></i> 3 zile (10:00 - 18:00)
+                        </div>
+                        <div class="pricing-options">
+                            <div class="pricing-option">
+                                <div class="label">Individual</div>
+                                <div class="price">600 €</div>
+                            </div>
+                            <div class="pricing-option">
+                                <div class="label">Grup</div>
+                                <div class="price">450 €</div>
+                            </div>
+                        </div>
+                        <a href="#course-enrollment" class="book-btn">Înscrie-te Acum</a>
+                    </div>
+
+                    <!-- Botox & Reconstruction Course -->
+                    <div class="pricing-card">
+                        <h3>Curs Botox & Reconstrucție</h3>
+                        <p class="description">Învață tehnici avansate de botox cald/rece și reconstrucția firului de păr.</p>
+                        <div class="includes">
+                            <h4>Include:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Botox Cald</li>
+                                <li><i class="fas fa-check"></i> Botox Rece</li>
+                                <li><i class="fas fa-check"></i> Reconstrucția Firului de Păr</li>
+                            </ul>
+                        </div>
+                        <div class="duration">
+                            <i class="fas fa-clock"></i> 3 zile (10:00 - 18:00)
+                        </div>
+                        <div class="pricing-options">
+                            <div class="pricing-option">
+                                <div class="label">Individual</div>
+                                <div class="price">600 €</div>
+                            </div>
+                            <div class="pricing-option">
+                                <div class="label">Grup</div>
+                                <div class="price">450 €</div>
+                            </div>
+                        </div>
+                        <a href="#course-enrollment" class="book-btn">Înscrie-te Acum</a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Coloring Training -->
+            <div class="pricing-category">
+                <h3 class="pricing-category-title"><i class="fas fa-palette"></i> Cursuri Colorimetrie</h3>
+                <div class="pricing-grid">
+                    
+                    <!-- Beginner Course -->
+                    <div class="pricing-card">
+                        <h3>Curs pentru Începători - Blond Total & Balayage</h3>
+                        <p class="description">Perfect pentru începători care doresc să stăpânească tehnicile profesionale de colorare de la zero.</p>
+                        <div class="includes">
+                            <h4>Include:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Tehnici Blond Total</li>
+                                <li><i class="fas fa-check"></i> Fundamentele Balayage</li>
+                                <li><i class="fas fa-check"></i> Teoria Culorilor</li>
+                                <li><i class="fas fa-check"></i> Aplicare Practică</li>
+                            </ul>
+                        </div>
+                        <div class="duration">
+                            <i class="fas fa-clock"></i> 5 zile (10:00 - 18:00)
+                        </div>
+                        <div class="pricing-options">
+                            <div class="pricing-option">
+                                <div class="label">Individual</div>
+                                <div class="price">2000 €</div>
+                            </div>
+                            <div class="pricing-option">
+                                <div class="label">Grup</div>
+                                <div class="price">1600 €</div>
+                            </div>
+                        </div>
+                        <a href="#course-enrollment" class="book-btn">Înscrie-te Acum</a>
+                    </div>
+
+                    <!-- Masterclass -->
+                    <div class="pricing-card">
+                        <h3>Masterclass - Perfecționare Blond & Balayage</h3>
+                        <p class="description">Tehnici avansate pentru stiliști experimentați care doresc să-și perfecționeze abilitățile de colorare.</p>
+                        <div class="includes">
+                            <h4>Include:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Blond Total Avansat</li>
+                                <li><i class="fas fa-check"></i> Balayage Profesional</li>
+                                <li><i class="fas fa-check"></i> Corecții Complexe de Culoare</li>
+                                <li><i class="fas fa-check"></i> Tehnici în Trend</li>
+                            </ul>
+                        </div>
+                        <div class="duration">
+                            <i class="fas fa-clock"></i> 2 zile (10:00 - 18:00)
+                        </div>
+                        <div class="pricing-options">
+                            <div class="pricing-option">
+                                <div class="label">Individual</div>
+                                <div class="price">1500 €</div>
+                            </div>
+                            <div class="pricing-option">
+                                <div class="label">Grup</div>
+                                <div class="price">1200 €</div>
+                            </div>
+                        </div>
+                        <a href="#course-enrollment" class="book-btn">Înscrie-te Acum</a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Course Enrollment CTA -->
+            <div id="course-enrollment" style="text-align: center; margin-top: 50px; padding: 40px; background: linear-gradient(135deg, var(--primary-light) 0%, #fff 100%); border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <h3 style="color: var(--primary-color); margin-bottom: 15px;"><i class="fas fa-graduation-cap"></i> Gata să Începi Formarea?</h3>
+                <p style="color: var(--gray-600); margin-bottom: 25px; max-width: 600px; margin-left: auto; margin-right: auto;">Completează formularul de înscriere și te vom contacta pentru a confirma datele cursului și a răspunde la orice întrebări.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScn2V60mZpoolJ4m62csD20NuggCirWM4OBQ05U2pESngm9Tg/viewform" target="_blank" class="btn btn-primary btn-large"><i class="fas fa-edit"></i> Înscrie-te Acum</a>
+            </div>
+
+            <!-- SERVICES PRICING -->
+            <div class="section-header" style="margin-top: 60px;">
+                <h2 class="section-title">Prețuri Servicii</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <!-- Coloring Services -->
+            <div class="pricing-category">
+                <h3 class="pricing-category-title"><i class="fas fa-palette"></i> Servicii Colorare</h3>
+                <table class="services-table">
+                    <thead>
+                        <tr>
+                            <th>Serviciu</th>
+                            <th>Preț</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Vopsit Simplu</td>
+                            <td class="price-cell">de la 80 €</td>
+                        </tr>
+                        <tr>
+                            <td>Balayage - Păr Scurt</td>
+                            <td class="price-cell">de la 100 €</td>
+                        </tr>
+                        <tr>
+                            <td>Balayage - Păr Mediu</td>
+                            <td class="price-cell">de la 150 €</td>
+                        </tr>
+                        <tr>
+                            <td>Balayage - Păr Lung</td>
+                            <td class="price-cell">de la 200 €</td>
+                        </tr>
+                        <tr>
+                            <td>Blond Total</td>
+                            <td class="price-cell">de la 100 €</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Treatment Services -->
+            <div class="pricing-category">
+                <h3 class="pricing-category-title"><i class="fas fa-spa"></i> Tratamente Păr</h3>
+                <table class="services-table">
+                    <thead>
+                        <tr>
+                            <th>Serviciu</th>
+                            <th>Preț</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Keratină / Nanoplastie - Păr Scurt</td>
+                            <td class="price-cell">de la 100 €</td>
+                        </tr>
+                        <tr>
+                            <td>Keratină / Nanoplastie - Păr Mediu</td>
+                            <td class="price-cell">de la 150 €</td>
+                        </tr>
+                        <tr>
+                            <td>Keratină / Nanoplastie - Păr Lung</td>
+                            <td class="price-cell">de la 200 €</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Haircuts -->
+            <div class="pricing-category">
+                <h3 class="pricing-category-title"><i class="fas fa-cut"></i> Tunsori</h3>
+                <table class="services-table">
+                    <thead>
+                        <tr>
+                            <th>Serviciu</th>
+                            <th>Preț</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tuns</td>
+                            <td class="price-cell">de la 35 €</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- CTA -->
+            <div style="text-align: center; margin-top: 50px;">
+                <p style="color: var(--gray-600); margin-bottom: 20px;">Ești gata să faci o programare?</p>
+                <a href="programare-ro.html" class="btn btn-primary btn-large">Programează-te Acum</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Daniela Mancos</h3>
+                    <p>Stilist profesionist</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index-ro.html">Acasă</a>
+                    <a href="programare-ro.html">Programare</a>
+                    <a href="cursuri-ro.html">Cursuri</a>
+                    <a href="preturi-ro.html">Prețuri</a>
+                    <a href="contact-ro.html">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://facebook.com/daniela.mancos.5" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/daniela.mancos?igsh=MTJubnpkMjN2YjV4cA==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@hairbymancosd" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Daniela Mancos. Toate drepturile rezervate.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

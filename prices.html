@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="static/img/favicon.jpg" type="image/jpeg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prices - Daniela Mancos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .pricing-section { padding: 60px 0; }
+        .pricing-category { margin-bottom: 60px; }
+        .pricing-category-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .pricing-category-title i { font-size: 1.5rem; }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+        .pricing-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        .pricing-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        .pricing-card .description {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .pricing-card .includes { margin-bottom: 20px; }
+        .pricing-card .includes h4 {
+            font-size: 0.9rem;
+            color: var(--gray-700);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .pricing-card .includes ul { list-style: none; padding: 0; }
+        .pricing-card .includes li {
+            padding: 6px 0;
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .pricing-card .includes li i { color: var(--primary); font-size: 0.8rem; }
+        .pricing-card .duration {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            padding: 10px 0;
+            border-top: 1px solid var(--gray-200);
+        }
+        .pricing-card .duration i { color: var(--primary); }
+        .pricing-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .pricing-option {
+            background: var(--gray-100);
+            border-radius: var(--radius-md);
+            padding: 15px;
+            text-align: center;
+        }
+        .pricing-option .label {
+            font-size: 0.8rem;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+        .pricing-option .price {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        .pricing-card .book-btn {
+            display: block;
+            text-align: center;
+            padding: 12px 24px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+        .pricing-card .book-btn:hover { background: var(--primary-dark); }
+        .course-note {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            margin-bottom: 40px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .course-note i { font-size: 2rem; opacity: 0.9; }
+        .course-note-content h4 { font-size: 1.2rem; margin-bottom: 10px; }
+        .course-note-content ul { list-style: none; padding: 0; margin: 0; }
+        .course-note-content li { padding: 5px 0; display: flex; align-items: center; gap: 10px; }
+        .course-note-content li i { font-size: 1rem; }
+        .services-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .services-table th, .services-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-200);
+        }
+        .services-table th { background: var(--gray-100); font-weight: 600; color: var(--dark); }
+        .services-table td { color: var(--gray-700); }
+        .services-table .price-cell { font-weight: 600; color: var(--primary); white-space: nowrap; }
+        .services-table tr:hover { background: var(--gray-50); }
+        @media (max-width: 768px) {
+            .pricing-options { grid-template-columns: 1fr; }
+            .course-note { flex-direction: column; text-align: center; }
+            .services-table { font-size: 0.9rem; }
+            .services-table th, .services-table td { padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">Daniela Mancos</span>
+            </a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="programare.html" class="nav-link">Booking</a></li>
+                <li><a href="cursuri.html" class="nav-link">Courses</a></li>
+                <li><a href="prices.html" class="nav-link active">Prices</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="preturi-ro.html" class="nav-link lang-switch" title="Switch to Romanian">🇷🇴 RO</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header" style="background-image: url('static/img/IMG_4701.JPG');">
+        <div class="page-header-overlay"></div>
+        <div class="page-header-content">
+            <h1>Prices</h1>
+            <p>Transparent pricing for all services and courses</p>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section section">
+        <div class="container">
+
+            <!-- COURSES PRICING -->
+            <div class="section-header">
+                <h2 class="section-title">Course Prices</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <!-- Hair Treatment Training -->
+            <div class="pricing-category">
+                <h3 class="pricing-category-title"><i class="fas fa-spa"></i> Hair Treatment Training</h3>
+                <div class="pricing-grid">
+                    
+                    <!-- Full Hair Treatment Course -->
+                    <div class="pricing-card">
+                        <h3>Full Hair Treatment Course</h3>
+                        <p class="description">Complete training covering all hair treatment techniques for professional results.</p>
+                        <div class="includes">
+                            <h4>Includes:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Keratin Straightening</li>
+                                <li><i class="fas fa-check"></i> Keratin Treatment</li>
+                                <li><i class="fas fa-check"></i> Nanoplasty</li>
+                                <li><i class="fas fa-check"></i> Hot/Cold Botox</li>
+                                <li><i class="fas fa-gift"></i> <strong>Gift:</strong> Hair Reconstruction</li>
+                            </ul>
+                        </div>
+                        <div class="duration">
+                            <i class="fas fa-clock"></i> 3 days (10:00 - 18:00)
+                        </div>
+                        <div class="pricing-options">
+                            <div class="pricing-option">
+                                <div class="label">Individual</div>
+                                <div class="price">1200 €</div>
+                            </div>
+                            <div class="pricing-option">
+                                <div class="label">Group (4 persons)</div>
+                                <div class="price">900 €</div>
+                            </div>
+                        </div>
+                        <a href="#course-enrollment" class="book-btn">Enroll Now</a>
+                    </div>
+
+                    <!-- Keratin-Nanoplasty Course -->
+                    <div class="pricing-card">
+                        <h3>Keratin & Nanoplasty Course</h3>
+                        <p class="description">Specialized training in keratin treatments and nanoplasty techniques.</p>
+                        <div class="includes">
+                            <h4>Includes:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Keratin Straightening</li>
+                                <li><i class="fas fa-check"></i> Keratin Treatment</li>
+                                <li><i class="fas fa-check"></i> Nanoplasty</li>
+                            </ul>
+                        </div>
+                        <div class="duration">
+                            <i class="fas fa-clock"></i> 3 days (10:00 - 18:00)
+                        </div>
+                        <div class="pricing-options">
+                            <div class="pricing-option">
+                                <div class="label">Individual</div>
+                                <div class="price">600 €</div>
+                            </div>
+                            <div class="pricing-option">
+                                <div class="label">Group</div>
+                                <div class="price">450 €</div>
+                            </div>
+                        </div>
+                        <a href="#course-enrollment" class="book-btn">Enroll Now</a>
+                    </div>
+
+                    <!-- Botox & Reconstruction Course -->
+                    <div class="pricing-card">
+                        <h3>Botox & Hair Reconstruction Course</h3>
+                        <p class="description">Learn advanced hot/cold botox techniques and hair fiber reconstruction.</p>
+                        <div class="includes">
+                            <h4>Includes:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Hot Botox</li>
+                                <li><i class="fas fa-check"></i> Cold Botox</li>
+                                <li><i class="fas fa-check"></i> Hair Fiber Reconstruction</li>
+                            </ul>
+                        </div>
+                        <div class="duration">
+                            <i class="fas fa-clock"></i> 3 days (10:00 - 18:00)
+                        </div>
+                        <div class="pricing-options">
+                            <div class="pricing-option">
+                                <div class="label">Individual</div>
+                                <div class="price">600 €</div>
+                            </div>
+                            <div class="pricing-option">
+                                <div class="label">Group</div>
+                                <div class="price">450 €</div>
+                            </div>
+                        </div>
+                        <a href="#course-enrollment" class="book-btn">Enroll Now</a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Coloring Training -->
+            <div class="pricing-category">
+                <h3 class="pricing-category-title"><i class="fas fa-palette"></i> Coloring Training</h3>
+                <div class="pricing-grid">
+                    
+                    <!-- Beginner Course -->
+                    <div class="pricing-card">
+                        <h3>Beginner Course - Total Blonde & Balayage</h3>
+                        <p class="description">Perfect for beginners who want to master professional coloring techniques from scratch.</p>
+                        <div class="includes">
+                            <h4>Includes:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Total Blonde Techniques</li>
+                                <li><i class="fas fa-check"></i> Balayage Fundamentals</li>
+                                <li><i class="fas fa-check"></i> Color Theory</li>
+                                <li><i class="fas fa-check"></i> Practical Application</li>
+                            </ul>
+                        </div>
+                        <div class="duration">
+                            <i class="fas fa-clock"></i> 5 days (10:00 - 18:00)
+                        </div>
+                        <div class="pricing-options">
+                            <div class="pricing-option">
+                                <div class="label">Individual</div>
+                                <div class="price">2000 €</div>
+                            </div>
+                            <div class="pricing-option">
+                                <div class="label">Group</div>
+                                <div class="price">1600 €</div>
+                            </div>
+                        </div>
+                        <a href="#course-enrollment" class="book-btn">Enroll Now</a>
+                    </div>
+
+                    <!-- Masterclass -->
+                    <div class="pricing-card">
+                        <h3>Masterclass - Advanced Blonde & Balayage</h3>
+                        <p class="description">Advanced techniques for experienced stylists looking to perfect their coloring skills.</p>
+                        <div class="includes">
+                            <h4>Includes:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Advanced Total Blonde</li>
+                                <li><i class="fas fa-check"></i> Professional Balayage</li>
+                                <li><i class="fas fa-check"></i> Complex Color Corrections</li>
+                                <li><i class="fas fa-check"></i> Trend Techniques</li>
+                            </ul>
+                        </div>
+                        <div class="duration">
+                            <i class="fas fa-clock"></i> 2 days (10:00 - 18:00)
+                        </div>
+                        <div class="pricing-options">
+                            <div class="pricing-option">
+                                <div class="label">Individual</div>
+                                <div class="price">1500 €</div>
+                            </div>
+                            <div class="pricing-option">
+                                <div class="label">Group</div>
+                                <div class="price">1200 €</div>
+                            </div>
+                        </div>
+                        <a href="#course-enrollment" class="book-btn">Enroll Now</a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Course Enrollment CTA -->
+            <div id="course-enrollment" style="text-align: center; margin-top: 50px; padding: 40px; background: linear-gradient(135deg, var(--primary-light) 0%, #fff 100%); border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <h3 style="color: var(--primary-color); margin-bottom: 15px;"><i class="fas fa-graduation-cap"></i> Ready to Start Your Training?</h3>
+                <p style="color: var(--gray-600); margin-bottom: 25px; max-width: 600px; margin-left: auto; margin-right: auto;">Fill out the enrollment form and we'll contact you to confirm your course dates and answer any questions.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScn2V60mZpoolJ4m62csD20NuggCirWM4OBQ05U2pESngm9Tg/viewform" target="_blank" class="btn btn-primary btn-large"><i class="fas fa-edit"></i> Enroll Now</a>
+            </div>
+
+            <!-- SERVICES PRICING -->
+            <div class="section-header" style="margin-top: 60px;">
+                <h2 class="section-title">Service Prices</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <!-- Coloring Services -->
+            <div class="pricing-category">
+                <h3 class="pricing-category-title"><i class="fas fa-palette"></i> Coloring Services</h3>
+                <table class="services-table">
+                    <thead>
+                        <tr>
+                            <th>Service</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Simple Coloring</td>
+                            <td class="price-cell">from 80 €</td>
+                        </tr>
+                        <tr>
+                            <td>Balayage - Short Hair</td>
+                            <td class="price-cell">from 100 €</td>
+                        </tr>
+                        <tr>
+                            <td>Balayage - Medium Hair</td>
+                            <td class="price-cell">from 150 €</td>
+                        </tr>
+                        <tr>
+                            <td>Balayage - Long Hair</td>
+                            <td class="price-cell">from 200 €</td>
+                        </tr>
+                        <tr>
+                            <td>Total Blonde</td>
+                            <td class="price-cell">from 100 €</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Treatment Services -->
+            <div class="pricing-category">
+                <h3 class="pricing-category-title"><i class="fas fa-spa"></i> Hair Treatments</h3>
+                <table class="services-table">
+                    <thead>
+                        <tr>
+                            <th>Service</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Keratin / Nanoplasty - Short Hair</td>
+                            <td class="price-cell">from 100 €</td>
+                        </tr>
+                        <tr>
+                            <td>Keratin / Nanoplasty - Medium Hair</td>
+                            <td class="price-cell">from 150 €</td>
+                        </tr>
+                        <tr>
+                            <td>Keratin / Nanoplasty - Long Hair</td>
+                            <td class="price-cell">from 200 €</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Haircuts -->
+            <div class="pricing-category">
+                <h3 class="pricing-category-title"><i class="fas fa-cut"></i> Haircuts</h3>
+                <table class="services-table">
+                    <thead>
+                        <tr>
+                            <th>Service</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Haircut</td>
+                            <td class="price-cell">from 35 €</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- CTA -->
+            <div style="text-align: center; margin-top: 50px;">
+                <p style="color: var(--gray-600); margin-bottom: 20px;">Ready to book your appointment?</p>
+                <a href="programare.html" class="btn btn-primary btn-large">Book Now</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Daniela Mancos</h3>
+                    <p>Professional Stylist</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="programare.html">Booking</a>
+                    <a href="cursuri.html">Courses</a>
+                    <a href="prices.html">Prices</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://facebook.com/daniela.mancos.5" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/daniela.mancos?igsh=MTJubnpkMjN2YjV4cA==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@hairbymancosd" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Daniela Mancos. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
