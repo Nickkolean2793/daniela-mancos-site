@@ -8,6 +8,110 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .course-category { margin-bottom: 60px; }
+        .course-category-header { margin-bottom: 30px; }
+        .course-category-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .course-category-title i { font-size: 1.5rem; }
+        .course-category-description {
+            color: var(--gray-600);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            max-width: 800px;
+        }
+        .courses-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .course-card-simple {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .course-card-simple:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        .course-card-simple h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        .course-card-simple .description {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .course-card-simple .includes { margin-bottom: 15px; }
+        .course-card-simple .includes h4 {
+            font-size: 0.85rem;
+            color: var(--gray-700);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .course-card-simple .includes ul { list-style: none; padding: 0; margin: 0; }
+        .course-card-simple .includes li {
+            padding: 5px 0;
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .course-card-simple .includes li i { color: var(--primary); font-size: 0.8rem; }
+        .course-card-simple .duration {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            padding-top: 15px;
+            border-top: 1px solid var(--gray-200);
+        }
+        .course-card-simple .duration i { color: var(--primary); }
+        .cta-enroll {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            padding: 60px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .cta-enroll h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+        .cta-enroll p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+        .cta-enroll .btn {
+            padding: 18px 40px;
+            font-size: 1.1rem;
+            background: var(--white);
+            color: var(--primary);
+            border: none;
+        }
+        .cta-enroll .btn:hover {
+            background: var(--gray-100);
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -23,6 +127,7 @@
                 <li><a href="index-ro.html" class="nav-link">Acasă</a></li>
                 <li><a href="programare-ro.html" class="nav-link">Programare</a></li>
                 <li><a href="cursuri-ro.html" class="nav-link active">Cursuri</a></li>
+                <li><a href="preturi-ro.html" class="nav-link">Prețuri</a></li>
                 <li><a href="contact-ro.html" class="nav-link">Contact</a></li>
                 <li><a href="cursuri.html" class="nav-link lang-switch" title="Switch to English">🇬🇧 EN</a></li>
             </ul>
@@ -33,7 +138,7 @@
     <section class="page-header" style="background-image: url('static/img/IMG_4695.JPG');">
         <div class="page-header-overlay"></div>
         <div class="page-header-content">
-            <h1>Cursuri de Perfecționare</h1>
+            <h1>Cursuri de Formare Profesională</h1>
             <p>Învață de la un profesionist</p>
         </div>
     </section>
@@ -42,69 +147,110 @@
     <section class="courses section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Cursuri disponibile</h2>
+                <h2 class="section-title">Cursuri Disponibile</h2>
                 <div class="section-divider"></div>
                 <p class="section-subtitle">Dezvoltă-ți abilitățile cu cursurile noastre practice și intensive</p>
             </div>
 
-            <div class="courses-grid courses-grid-2">
-                <!-- Course 1 - Cursuri de Tratamente -->
-                <div class="course-card">
-                    <div class="course-image">
-                        <img src="static/img/IMG_4696 (1).JPG" alt="Cursuri de Tratamente">
-                        <div class="course-badge">Popular</div>
-                    </div>
-                    <div class="course-content">
-                        <h3>Cursuri de tratamente</h3>
-                        <p>Învață cele mai moderne tehnici de tratamente capilare: îdreptare cu keratină, nanoplastie, botox cald/rece și reconstrucție. Cursul include practică intensivă și materiale profesionale.</p>
-                        <div class="course-includes">
-                            <h4>Ce vei învăța:</h4>
+            <!-- Course Note -->
+            <div class="course-note" style="background: linear-gradient(135deg, rgba(212, 165, 116, 0.1), rgba(212, 165, 116, 0.05)); border-radius: 15px; padding: 30px; margin-bottom: 50px; display: flex; align-items: flex-start; gap: 20px;">
+                <i class="fas fa-graduation-cap" style="font-size: 2.5rem; color: var(--primary);"></i>
+                <div class="course-note-content">
+                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--dark); margin-bottom: 15px;">Toate Cursurile Includ:</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px;">
+                        <li style="display: flex; align-items: center; gap: 10px; color: var(--gray-600);"><i class="fas fa-check" style="color: var(--primary);"></i> Practică intensivă pe modele reale</li>
+                        <li style="display: flex; align-items: center; gap: 10px; color: var(--gray-600);"><i class="fas fa-check" style="color: var(--primary);"></i> Suport teoretic și materiale</li>
+                        <li style="display: flex; align-items: center; gap: 10px; color: var(--gray-600);"><i class="fas fa-check" style="color: var(--primary);"></i> Diplomă de participare</li>
+                        <li style="display: flex; align-items: center; gap: 10px; color: var(--gray-600);"><i class="fas fa-check" style="color: var(--primary);"></i> Suport și consultanță post-curs</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Hair Treatment Training -->
+            <div class="course-category">
+                <div class="course-category-header">
+                    <h3 class="course-category-title"><i class="fas fa-spa"></i> Cursuri Tratamente Păr</h3>
+                    <p class="course-category-description">Învață cele mai moderne tehnici de tratament pentru păr: îndreptare cu keratină, nanoplastie, botox cald/rece și reconstrucție. Cursul include practică intensivă și materiale profesionale.</p>
+                </div>
+                <div class="courses-grid-3">
+                    <div class="course-card-simple">
+                        <h3>Curs Complet Tratamente Păr</h3>
+                        <p class="description">Instruire completă care acoperă toate tehnicile de tratament pentru rezultate profesionale.</p>
+                        <div class="includes">
+                            <h4>Include:</h4>
                             <ul>
-                                <li><i class="fas fa-check-circle"></i> Îndreptare cu Keratină</li>
-                                <li><i class="fas fa-check-circle"></i> Keratină</li>
-                                <li><i class="fas fa-check-circle"></i> Nanoplastie</li>
-                                <li><i class="fas fa-check-circle"></i> Botox cald/rece</li>
-                                <li><i class="fas fa-check-circle"></i> Reconstrucție</li>
+                                <li><i class="fas fa-check"></i> Îndreptare cu Keratină</li>
+                                <li><i class="fas fa-check"></i> Tratament Keratină</li>
+                                <li><i class="fas fa-check"></i> Nanoplastie</li>
+                                <li><i class="fas fa-check"></i> Botox Cald/Rece</li>
+                                <li><i class="fas fa-gift"></i> <strong>Cadou:</strong> Reconstrucția firului de păr</li>
                             </ul>
                         </div>
-                        <div class="course-details">
-                            <span><i class="fas fa-clock"></i> 5 zile</span>
-                            <span><i class="fas fa-users"></i> Max 6 cursanți</span>
+                        <div class="duration"><i class="fas fa-clock"></i> 3 zile (10:00 - 18:00)</div>
+                    </div>
+                    <div class="course-card-simple">
+                        <h3>Curs Keratină & Nanoplastie</h3>
+                        <p class="description">Instruire specializată în tratamente cu keratină și tehnici de nanoplastie.</p>
+                        <div class="includes">
+                            <h4>Include:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Îndreptare cu Keratină</li>
+                                <li><i class="fas fa-check"></i> Tratament Keratină</li>
+                                <li><i class="fas fa-check"></i> Nanoplastie</li>
+                            </ul>
                         </div>
-                        <div class="course-price">500 EUR</div>
-                        <button class="btn btn-primary btn-full" onclick="openCourseModal('Cursuri de Tratamente', '500 EUR')">
-                            Înscrie-te
-                        </button>
+                        <div class="duration"><i class="fas fa-clock"></i> 3 zile (10:00 - 18:00)</div>
+                    </div>
+                    <div class="course-card-simple">
+                        <h3>Curs Botox & Reconstrucție</h3>
+                        <p class="description">Învață tehnici avansate de botox cald/rece și reconstrucția firului de păr.</p>
+                        <div class="includes">
+                            <h4>Include:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Botox Cald</li>
+                                <li><i class="fas fa-check"></i> Botox Rece</li>
+                                <li><i class="fas fa-check"></i> Reconstrucția Firului de Păr</li>
+                            </ul>
+                        </div>
+                        <div class="duration"><i class="fas fa-clock"></i> 3 zile (10:00 - 18:00)</div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Course 2 - Cursuri de colorimetrie -->
-                <div class="course-card">
-                    <div class="course-image">
-                        <img src="static/img/IMG_4697 (1).JPG" alt="Cursuri de Colorimetrie">
-                        <div class="course-badge bestseller">Bestseller</div>
-                    </div>
-                    <div class="course-content">
-                        <h3>Cursuri de colorimetrie</h3>
-                        <p>Descoperă secretele colorării profesionale. De la teorie la aplicare practică, vei stăpâni toate tehnicile moderne de colorare.</p>
-                        <div class="course-includes">
-                            <h4>Ce vei învăța:</h4>
+            <!-- Coloring Training -->
+            <div class="course-category">
+                <div class="course-category-header">
+                    <h3 class="course-category-title"><i class="fas fa-palette"></i> Cursuri Colorimetrie</h3>
+                    <p class="course-category-description">Descoperă secretele colorării profesionale. De la teorie la aplicare practică, vei stăpâni toate tehnicile moderne de colorare.</p>
+                </div>
+                <div class="courses-grid-3">
+                    <div class="course-card-simple">
+                        <h3>Curs pentru Începători - Blond Total & Balayage</h3>
+                        <p class="description">Perfect pentru începători care doresc să stăpânească tehnicile profesionale de colorare de la zero.</p>
+                        <div class="includes">
+                            <h4>Include:</h4>
                             <ul>
-                                <li><i class="fas fa-check-circle"></i> Balayage</li>
-                                <li><i class="fas fa-check-circle"></i> Airtouch</li>
-                                <li><i class="fas fa-check-circle"></i> Blond total</li>
-                                <li><i class="fas fa-check-circle"></i> Vopsit profesional</li>
-                                <li><i class="fas fa-check-circle"></i> Teoria culorilor</li>
+                                <li><i class="fas fa-check"></i> Tehnici Blond Total</li>
+                                <li><i class="fas fa-check"></i> Fundamentele Balayage</li>
+                                <li><i class="fas fa-check"></i> Teoria Culorilor</li>
+                                <li><i class="fas fa-check"></i> Aplicare Practică</li>
                             </ul>
                         </div>
-                        <div class="course-details">
-                            <span><i class="fas fa-clock"></i> 5 zile</span>
-                            <span><i class="fas fa-users"></i> Max 6 cursanți</span>
+                        <div class="duration"><i class="fas fa-clock"></i> 5 zile (10:00 - 18:00)</div>
+                    </div>
+                    <div class="course-card-simple">
+                        <h3>Masterclass - Blond & Balayage Avansat</h3>
+                        <p class="description">Tehnici avansate pentru stiliști experimentați care doresc să-și perfecționeze abilitățile de colorare.</p>
+                        <div class="includes">
+                            <h4>Include:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Blond Total Avansat</li>
+                                <li><i class="fas fa-check"></i> Balayage Profesional</li>
+                                <li><i class="fas fa-check"></i> Corecții Complexe de Culoare</li>
+                                <li><i class="fas fa-check"></i> Tehnici în Trend</li>
+                            </ul>
                         </div>
-                        <div class="course-price">500 EUR</div>
-                        <button class="btn btn-primary btn-full" onclick="openCourseModal('Cursuri de Colorimetrie', '500 EUR')">
-                            Înscrie-te
-                        </button>
+                        <div class="duration"><i class="fas fa-clock"></i> 2 zile (10:00 - 18:00)</div>
                     </div>
                 </div>
             </div>
@@ -121,66 +267,36 @@
             <div class="why-us-grid">
                 <div class="why-us-item">
                     <i class="fas fa-hand-holding-heart"></i>
-                    <h3>Practică intensivă</h3>
+                    <h3>Practică Intensivă</h3>
                     <p>70% din timp este dedicat practicii pe modele reale</p>
                 </div>
                 <div class="why-us-item">
                     <i class="fas fa-certificate"></i>
-                    <h3>Certificat recunoscut</h3>
+                    <h3>Certificat Recunoscut</h3>
                     <p>Certificat de absolvire pentru fiecare curs finalizat</p>
                 </div>
                 <div class="why-us-item">
                     <i class="fas fa-users-cog"></i>
-                    <h3>Grupuri mici</h3>
+                    <h3>Grupuri Mici</h3>
                     <p>Atenție personalizată pentru fiecare cursant</p>
                 </div>
                 <div class="why-us-item">
                     <i class="fas fa-headset"></i>
-                    <h3>Suport post-curs</h3>
-                    <p>Consultanță gratuită 30 de zile după absolvire</p>
+                    <h3>Suport Post-Curs</h3>
+                    <p>Consultanță gratuită timp de 30 de zile după absolvire</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Course Modal -->
-    <div id="courseModal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close">&times;</span>
-            <h2>Înscriere la curs</h2>
-            <p id="modalCourseInfo" style="margin-bottom: 1.5rem; color: var(--gray-600);"></p>
-            
-            <!-- Integrare Google Forms -->
-            <iframe id="courseIframe" 
-                    src="https://docs.google.com/forms/d/e/1FAIpQLSc7FRsWYiM_eoheE6DluvlQ2pmnLQborq5K335Us-v2G3ZMrw/viewform?embedded=true" 
-                    width="100%" 
-                    height="700" 
-                    frameborder="0" 
-                    marginheight="0" 
-                    marginwidth="0"
-                    style="border-radius: 8px; background: white;">
-                Se încarcă formularul...
-            </iframe>
-            
-            <p style="text-align: center; margin-top: 16px; color: var(--gray-500); font-size: 14px;">
-                După trimitere, apasă aici: 
-                <button onclick="showCourseSuccess()" class="btn btn-outline" style="margin-left: 8px; padding: 8px 16px; font-size: 14px;">Am trimis</button>
-            </p>
-            
-            <!-- Success Overlay -->
-            <div id="courseSuccessOverlay" class="form-success-overlay" style="display: none;">
-                <div class="success-animation">
-                    <div class="checkmark-circle">
-                        <div class="checkmark-stem"></div>
-                        <div class="checkmark-kick"></div>
-                    </div>
-                    <h3>Înscriere trimisă!</h3>
-                    <p>Te vom contacta în curând cu detalii despre curs.</p>
-                    <button class="btn btn-primary" onclick="closeCourseModal()">Închide</button>
-                </div>
-            </div>
+    <!-- CTA Enroll Section -->
+    <section class="cta-enroll">
+        <div class="container">
+            <h2>Gata să Începi Formarea?</h2>
+            <p>Vezi prețurile complete și înscrie-te la cursul dorit astăzi</p>
+            <a href="preturi-ro.html" class="btn">Vezi Prețuri și Înscrie-te Acum</a>
         </div>
-    </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -194,12 +310,13 @@
                     <a href="index-ro.html">Acasă</a>
                     <a href="programare-ro.html">Programare</a>
                     <a href="cursuri-ro.html">Cursuri</a>
+                    <a href="preturi-ro.html">Prețuri</a>
                     <a href="contact-ro.html">Contact</a>
                 </div>
                 <div class="footer-social">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://facebook.com/daniela.mancos.5" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/daniela.mancos?igsh=MTJubnpkMjN2YjV4cA==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@hairbymancosd" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -209,6 +326,5 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <script src="js/courses.js"></script>
 </body>
 </html>
