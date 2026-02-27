@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="static/img/favicon.jpg" type="image/jpeg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programare - Daniela Mancos</title>
+    <title>Rendez-vous - Daniela Mancos</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -13,21 +13,21 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">
+            <a href="index-fr.html" class="logo">
                 <span class="logo-text">Daniela Mancos</span>
             </a>
             <button class="nav-toggle" aria-label="Toggle navigation">
                 <span class="hamburger"></span>
             </button>
             <ul class="nav-menu">
-                <li><a href="index-ro.html" class="nav-link">Acasă</a></li>
-                <li><a href="programare-ro.html" class="nav-link active">Programare</a></li>
-                <li><a href="cursuri-ro.html" class="nav-link">Cursuri</a></li>
-                <li><a href="preturi-ro.html" class="nav-link">Prețuri</a></li>
-                <li><a href="contact-ro.html" class="nav-link">Contact</a></li>
+                <li><a href="index-fr.html" class="nav-link">Accueil</a></li>
+                <li><a href="rendez-vous-fr.html" class="nav-link active">Rendez-vous</a></li>
+                <li><a href="cours-fr.html" class="nav-link">Formations</a></li>
+                <li><a href="tarifs-fr.html" class="nav-link">Tarifs</a></li>
+                <li><a href="contact-fr.html" class="nav-link">Contact</a></li>
                 <li><a href="programare.html" class="nav-link lang-switch" title="Switch to English">🇬🇧 EN</a></li>
+                <li><a href="programare-ro.html" class="nav-link lang-switch" title="Switch to Romanian">🇷🇴 RO</a></li>
                 <li><a href="afspraak-be.html" class="nav-link lang-switch" title="Switch to Dutch">🇧🇪 NL</a></li>
-                <li><a href="rendez-vous-fr.html" class="nav-link lang-switch" title="Switch to French">🇫🇷 FR</a></li>
             </ul>
         </div>
     </nav>
@@ -36,8 +36,8 @@
     <section class="page-header" style="background-image: url('static/img/IMG_4701.JPG');">
         <div class="page-header-overlay"></div>
         <div class="page-header-content">
-            <h1>Programare Online</h1>
-            <p>Rezervă-ți locul pentru o transformare</p>
+            <h1>Réservation en ligne</h1>
+            <p>Réservez votre place pour une transformation</p>
         </div>
     </section>
 
@@ -46,55 +46,55 @@
         <div class="container">
             <div class="booking-wrapper">
                 <div class="booking-info">
-                    <h2>Programează-te</h2>
-                    <p>Selectează data și ora preferată din calendarul de mai jos. Sunt afișate doar intervalele disponibile pentru a preveni suprapunerile.</p>
+                    <h2>Prenez rendez-vous</h2>
+                    <p>Sélectionnez votre date et heure préférées dans le calendrier ci-dessous. Seuls les créneaux disponibles sont affichés pour éviter les doubles réservations.</p>
                     
                     <!-- Service Selector -->
                     <div class="service-selector" style="margin: 25px 0; padding: 20px; background: linear-gradient(135deg, var(--primary-light) 0%, #fff 100%); border-radius: 12px; border: 2px solid var(--primary-color);">
                         <label for="serviceSelect" style="display: block; font-weight: 600; color: var(--primary-color); margin-bottom: 10px;">
-                            <i class="fas fa-cut"></i> Pasul 1: Selectează serviciul dorit
+                            <i class="fas fa-cut"></i> Étape 1: Sélectionnez votre service
                         </label>
                         <select id="serviceSelect" style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; background: white; cursor: pointer;">
-                            <option value="">-- Selectează un serviciu --</option>
-                            <optgroup label="Servicii Colorare">
-                                <option value="Colorare Simplă (de la 80€)">Colorare Simplă (de la 80€)</option>
-                                <option value="Balayage Păr Scurt (de la 100€)">Balayage Păr Scurt (de la 100€)</option>
-                                <option value="Balayage Păr Mediu (de la 150€)">Balayage Păr Mediu (de la 150€)</option>
-                                <option value="Balayage Păr Lung (de la 200€)">Balayage Păr Lung (de la 200€)</option>
-                                <option value="Blond Total (de la 100€)">Blond Total (de la 100€)</option>
+                            <option value="">-- Sélectionnez un service --</option>
+                            <optgroup label="Services de Coloration">
+                                <option value="Coloration Simple (à partir de 80€)">Coloration Simple (à partir de 80€)</option>
+                                <option value="Balayage Cheveux Courts (à partir de 100€)">Balayage Cheveux Courts (à partir de 100€)</option>
+                                <option value="Balayage Cheveux Mi-longs (à partir de 150€)">Balayage Cheveux Mi-longs (à partir de 150€)</option>
+                                <option value="Balayage Cheveux Longs (à partir de 200€)">Balayage Cheveux Longs (à partir de 200€)</option>
+                                <option value="Blond Intégral (à partir de 100€)">Blond Intégral (à partir de 100€)</option>
                             </optgroup>
-                            <optgroup label="Servicii Tratamente">
-                                <option value="Keratină/Nanoplastie Scurt (de la 100€)">Keratină/Nanoplastie Scurt (de la 100€)</option>
-                                <option value="Keratină/Nanoplastie Mediu (de la 150€)">Keratină/Nanoplastie Mediu (de la 150€)</option>
-                                <option value="Keratină/Nanoplastie Lung (de la 200€)">Keratină/Nanoplastie Lung (de la 200€)</option>
+                            <optgroup label="Soins">
+                                <option value="Kératine/Nanoplastie Courts (à partir de 100€)">Kératine/Nanoplastie Courts (à partir de 100€)</option>
+                                <option value="Kératine/Nanoplastie Mi-longs (à partir de 150€)">Kératine/Nanoplastie Mi-longs (à partir de 150€)</option>
+                                <option value="Kératine/Nanoplastie Longs (à partir de 200€)">Kératine/Nanoplastie Longs (à partir de 200€)</option>
                             </optgroup>
-                            <optgroup label="Tunsori">
-                                <option value="Tuns (de la 35€)">Tuns (de la 35€)</option>
+                            <optgroup label="Coupes">
+                                <option value="Coupe (à partir de 35€)">Coupe (à partir de 35€)</option>
                             </optgroup>
-                            <optgroup label="Altele">
-                                <option value="Consultație">Consultație</option>
-                                <option value="Alt Serviciu">Alt Serviciu</option>
+                            <optgroup label="Autre">
+                                <option value="Consultation">Consultation</option>
+                                <option value="Autre Service">Autre Service</option>
                             </optgroup>
                         </select>
                         <div id="selectedServiceNote" style="display: none; margin-top: 12px; padding: 15px; background: #d4edda; border-radius: 8px; color: #155724;">
                             <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
                                 <div>
-                                    <i class="fas fa-check-circle"></i> <strong>Selectat:</strong> <span id="selectedServiceText"></span>
+                                    <i class="fas fa-check-circle"></i> <strong>Sélectionné:</strong> <span id="selectedServiceText"></span>
                                 </div>
                                 <button onclick="copyService()" id="copyBtn" style="background: #155724; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-size: 14px;">
-                                    <i class="fas fa-copy"></i> Copiază
+                                    <i class="fas fa-copy"></i> Copier
                                 </button>
                             </div>
                             <p style="margin: 10px 0 0 0; font-size: 13px; color: #0c4128;">
-                                <i class="fas fa-arrow-down"></i> <strong>Pasul 2:</strong> Apasă "Copiază", apoi lipește în câmpul "Service" când faci programarea mai jos.
+                                <i class="fas fa-arrow-down"></i> <strong>Étape 2:</strong> Cliquez sur "Copier", puis collez dans le champ "Service" lors de la réservation ci-dessous.
                             </p>
                         </div>
                     </div>
                     
                     <div class="booking-features">
-                        <div class="booking-feature"><i class="fas fa-calendar-check"></i> Disponibilitate în timp real</div>
-                        <div class="booking-feature"><i class="fas fa-clock"></i> Confirmare instantanee</div>
-                        <div class="booking-feature"><i class="fas fa-shield-alt"></i> Programare securizată</div>
+                        <div class="booking-feature"><i class="fas fa-calendar-check"></i> Disponibilité en temps réel</div>
+                        <div class="booking-feature"><i class="fas fa-clock"></i> Confirmation instantanée</div>
+                        <div class="booking-feature"><i class="fas fa-shield-alt"></i> Réservation sécurisée</div>
                     </div>
                 </div>
                 <div class="booking-form-container">
@@ -103,7 +103,7 @@
                             style="border: 0; width: 100%; height: 600px; border-radius: 8px;" 
                             frameborder="0" 
                             scrolling="yes"
-                            title="Programează o întâlnire">
+                            title="Prendre rendez-vous">
                     </iframe>
                 </div>
             </div>
@@ -116,14 +116,14 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <h3>Daniela Mancos</h3>
-                    <p>Stilist profesionist</p>
+                    <p>Styliste Professionnelle</p>
                 </div>
                 <div class="footer-links">
-                    <a href="index-ro.html">Acasă</a>
-                    <a href="programare-ro.html">Programare</a>
-                    <a href="cursuri-ro.html">Cursuri</a>
-                    <a href="preturi-ro.html">Prețuri</a>
-                    <a href="contact-ro.html">Contact</a>
+                    <a href="index-fr.html">Accueil</a>
+                    <a href="rendez-vous-fr.html">Rendez-vous</a>
+                    <a href="cours-fr.html">Formations</a>
+                    <a href="tarifs-fr.html">Tarifs</a>
+                    <a href="contact-fr.html">Contact</a>
                 </div>
                 <div class="footer-social">
                     <a href="https://facebook.com/daniela.mancos.5" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -132,7 +132,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Daniela Mancos. Toate drepturile rezervate.</p>
+                <p>&copy; 2026 Daniela Mancos. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
@@ -157,10 +157,10 @@
             const service = document.getElementById('selectedServiceText').textContent;
             navigator.clipboard.writeText(service).then(function() {
                 const btn = document.getElementById('copyBtn');
-                btn.innerHTML = '<i class="fas fa-check"></i> Copiat!';
+                btn.innerHTML = '<i class="fas fa-check"></i> Copié!';
                 btn.style.background = '#0c4128';
                 setTimeout(function() {
-                    btn.innerHTML = '<i class="fas fa-copy"></i> Copiază';
+                    btn.innerHTML = '<i class="fas fa-copy"></i> Copier';
                     btn.style.background = '#155724';
                 }, 2000);
             });
